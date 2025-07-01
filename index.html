@@ -34,3 +34,27 @@
         "name": "Product 4",
         "image": "Product 4.jpg",
         "message": "Hello, I'm interested in Product 4"
+      }
+    ];
+
+    const container = document.getElementById('product-container');
+    products.forEach((product, index) => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.setAttribute('data-aos', 'fade-up');
+      card.setAttribute('data-aos-delay', index * 100);
+      card.innerHTML = `
+        <img src="products/${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
