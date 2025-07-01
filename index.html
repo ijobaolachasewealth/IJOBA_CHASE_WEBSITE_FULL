@@ -14,23 +14,28 @@
     <h1>IJoba Chase Logs Space</h1>
   </header>
 
-  <main class="product-grid">
-    <div class="product-card" data-aos="fade-up">
-      <img src="products/Product 1.jpg" alt="Luxury Log - Style A" />
-      <h3>Luxury Log - Style A</h3>
-      <a href="https://wa.me/2341234567890" class="chat-button">Chat</a>
-    </div>
-    <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-      <img src="products/Product 2.jpg" alt="Royal Log - Style B" />
-      <h3>Royal Log - Style B</h3>
-      <a href="https://wa.me/2341234567890" class="chat-button">Chat</a>
-    </div>
-    <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-      <img src="products/Product 3.jpg" alt="Classic Log - Style C" />
-      <h3>Classic Log - Style C</h3>
-      <a href="https://wa.me/2341234567890" class="chat-button">Chat</a>
-    </div>
-  </main>
+  <main class="product-grid" id="product-container"></main>
+
+<script>
+  fetch('products.json')
+    .then(response => response.json())
+    .then(products => {
+      const container = document.getElementById('product-container');
+      products.forEach((product, index) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', index * 100);
+
+        card.innerHTML = `
+          <img src="products/${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+          <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+        `;
+        container.appendChild(card);
+      });
+    });
+</script>
 
   <footer class="footer">
     &copy; 2025 IJOBA OLA CHASE WEALTH. All rights reserved.
