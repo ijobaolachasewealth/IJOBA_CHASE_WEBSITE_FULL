@@ -3,45 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IJCLS - Home</title>
+  <title>IJoba Chase - Products</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <header class="header">
-    <div class="logo">ICLS</div>
-    <h1>IJoba Chase Logs Space</h1>
-  </header>
+  <h1>IJoba Chase Product Gallery</h1>
 
   <main class="product-grid" id="product-container"></main>
 
-<script>
-  fetch('products.json')
-    .then(response => response.json())
-    .then(products => {
-      const container = document.getElementById('product-container');
-      products.forEach((product, index) => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.setAttribute('data-aos', 'fade-up');
-        card.setAttribute('data-aos-delay', index * 100);
-
-        card.innerHTML = `
-          <img src="products/${product.image}" alt="${product.name}" />
-          <h3>${product.name}</h3>
-          <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-        `;
-        container.appendChild(card);
-      });
-    });
-</script>
-
-  <footer class="footer">
-    &copy; 2025 IJOBA OLA CHASE WEALTH. All rights reserved.
-  </footer>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
-</body>
-</html>
+  <!-- Product rendering script -->
+  <script>
+    const products = [
+      {
+        "name": "Product 1",
+        "image": "Product 1.jpg",
+        "message": "Hello, I'm interested in Product 1"
+      },
+      {
+        "name": "Product 2",
+        "image": "Product 2.jpg",
+        "message": "Hello, I'm interested in Product 2"
+      },
+      {
+        "name": "Product 3",
+        "image": "Product 3.jpg",
+        "message": "Hello, I'm interested in Product 3"
+      },
+      {
+        "name": "Product 4",
+        "image": "Product 4.jpg",
+        "message": "Hello, I'm interested in Product 4"
