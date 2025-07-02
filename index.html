@@ -9,14 +9,17 @@
 </head>
 <body>
 
+  <!-- Logo -->
   <header>
-  <img src="assets/logo.png" alt="IJOBA CHASE LOGS SPACE" class="logo" />
-</header>
+    <img src="assets/logo.png" alt="IJOBA CHASE LOGS SPACE" class="logo" />
+  </header>
 
   <h1>IJOBA CHASE LOGS SPACE</h1>
 
+  <!-- Product Grid -->
   <main class="product-grid" id="product-container"></main>
 
+  <!-- Footer -->
   <footer>
     &copy; 2025 Ijoba Ola Chase Wealth. All rights reserved.
   </footer>
@@ -85,19 +88,14 @@
     document.addEventListener("DOMContentLoaded", () => {
       const lightbox = document.getElementById("lightbox");
       const lightboxImg = document.getElementById("lightbox-img");
-      const closeBtn = document.querySelector(".close-btn");
 
-      document.querySelectorAll(".product-card img").forEach((img) => {
-        img.addEventListener("click", (e) => {
+      document.addEventListener("click", function (e) {
+        if (e.target.closest(".image-link")) {
           e.preventDefault();
+          const imgSrc = e.target.closest(".image-link").href;
+          lightboxImg.src = imgSrc;
           lightbox.style.display = "flex";
-          lightboxImg.src = img.src;
-        });
-      });
-
-      closeBtn.addEventListener("click", () => {
-        lightbox.style.display = "none";
-        lightboxImg.src = "";
+        }
       });
 
       lightbox.addEventListener("click", (e) => {
@@ -108,5 +106,6 @@
       });
     });
   </script>
+
 </body>
 </html>
