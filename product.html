@@ -41,11 +41,26 @@
 
       const product = JSON.parse(data);
 
+      // Inject the product details including Add to Cart button
       container.innerHTML = `
         <img src="products/${product.image}" alt="${product.name}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px;" />
         <h3 style="margin-top: 1rem;">${product.name}</h3>
         <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button" style="margin-top: 1rem;">Chat on WhatsApp</a>
+        <button id="addToCartBtn" class="chat-button" style="margin-top: 1rem; background-color: #007bff;">Add to Cart</button>
       `;
+
+      // Add to Cart Logic
+      setTimeout(() => {
+        const addToCartBtn = document.getElementById("addToCartBtn");
+        if (addToCartBtn) {
+          addToCartBtn.addEventListener("click", () => {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${product.name} added to cart!`);
+          });
+        }
+      }, 0);
     });
   </script>
 </body>
