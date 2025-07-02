@@ -82,6 +82,62 @@
   lightbox.style.display = "none";
   lightboxImg.src = ""; // clear image to free memory
 }
-  </script>
+
+    <!-- Lightbox Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.querySelector(".lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const closeBtn = document.querySelector(".close-btn");
+
+    document.querySelectorAll(".product-card img").forEach((img) => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
+  });
+
+    <!-- Lightbox HTML first -->
+<div class="lightbox">
+  <span class="close-btn">&times;</span>
+  <img src="" alt="Product View" />
+</div>
+
+<!-- Script second -->
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.querySelector(".lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const closeBtn = document.querySelector(".close-btn");
+
+    document.querySelectorAll(".product-card img").forEach((img) => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
+  });
+</script>
 </body>
 </html>
