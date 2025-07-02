@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>IJoba Chase Product Gallery</h1>
+  <h1>IJOBA CHASE LOGS SPACE</h1>
 
   <main class="product-grid" id="product-container"></main>
 
@@ -43,10 +43,12 @@
       card.setAttribute('data-aos', 'fade-up');
       card.setAttribute('data-aos-delay', index * 100);
       card.innerHTML = `
-        <img src="products/${product.image}" alt="${product.name}" />
-        <h3>${product.name}</h3>
-        <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-      `;
+  <a href="products/${product.image}" class="image-link">
+    <img src="products/${product.image}" alt="${product.name}" />
+  </a>
+  <h3>${product.name}</h3>
+  <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+`;
       container.appendChild(card);
     });
   </script>
