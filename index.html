@@ -57,9 +57,31 @@
   &copy; 2025 IJOBA CHASE LOGS SPACE. All rights reserved.
 </footer>
 
+  <div id="lightbox" class="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="Full View" />
+</div>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+
+      const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  document.addEventListener("click", function (e) {
+    if (e.target.closest(".image-link")) {
+      e.preventDefault();
+      const imgSrc = e.target.closest(".image-link").href;
+      lightboxImg.src = imgSrc;
+      lightbox.style.display = "flex";
+    }
+  });
+
+  function closeLightbox() {
+  lightbox.style.display = "none";
+  lightboxImg.src = ""; // clear image to free memory
+}
   </script>
 </body>
 </html>
