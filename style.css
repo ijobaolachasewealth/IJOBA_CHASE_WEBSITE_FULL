@@ -84,4 +84,6 @@ footer {
   margin-top: 50px;
   font-size: 0.9rem;
   color: #666;
+  background-color: #f2f2f2; /* light gray background */
+  padding: 1rem 0; /* vertical spacing */
 }
