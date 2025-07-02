@@ -13,6 +13,14 @@ body {
   line-height: 1.6;
 }
 
+/* Logo sizing */
+.logo {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 /* Heading */
 h1 {
   text-align: center;
