@@ -538,3 +538,19 @@ section {
 .cart-footer a:hover {
   background: #0056b3;
 }
+
+/* ==== Site Header with Left Logo ==== */
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent;
+  justify-content: flex-start;
+}
+
+.logo {
+  max-width: 80px;
+  height: auto;
+  display: block;
+  margin: 0;
+}
