@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IJoba Chase - Products</title>
+  <title>IJoba Chase - Products</title> 
   <link rel="stylesheet" href="style.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
@@ -12,6 +12,23 @@
 
   <main class="product-grid" id="product-container"></main>
 
+  <footer>
+    &copy; 2025 IJOBA CHASE LOGS SPACE. All rights reserved.
+  </footer>
+
+  <!-- Lightbox HTML -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="Full View" />
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Product Cards Script -->
   <script>
     const products = [
       {
@@ -43,101 +60,48 @@
       card.setAttribute('data-aos', 'fade-up');
       card.setAttribute('data-aos-delay', index * 100);
       card.innerHTML = `
-  <a href="products/${product.image}" class="image-link">
-    <img src="products/${product.image}" alt="${product.name}" />
-  </a>
-  <h3>${product.name}</h3>
-  <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-`;
+        <a href="products/${product.image}" class="image-link">
+          <img src="products/${product.image}" alt="${product.name}" />
+        </a>
+        <h3>${product.name}</h3>
+        <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+      `;
       container.appendChild(card);
     });
   </script>
 
-  <footer>
-  &copy; 2025 IJOBA CHASE LOGS SPACE. All rights reserved.
-</footer>
-
-  <div id="lightbox" class="lightbox">
-  <span class="close-btn" onclick="closeLightbox()">&times;</span>
-  <img id="lightbox-img" src="" alt="Full View" />
-</div>
-
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Lightbox Script -->
   <script>
-    AOS.init();
-
-      const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-
-  document.addEventListener("click", function (e) {
-    if (e.target.closest(".image-link")) {
-      e.preventDefault();
-      const imgSrc = e.target.closest(".image-link").href;
-      lightboxImg.src = imgSrc;
-      lightbox.style.display = "flex";
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+      document.getElementById("lightbox-img").src = "";
     }
-  });
 
-  function closeLightbox() {
-  lightbox.style.display = "none";
-  lightboxImg.src = ""; // clear image to free memory
-}
+    document.addEventListener("DOMContentLoaded", () => {
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.querySelector(".close-btn");
 
-    <!-- Lightbox Script -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const lightbox = document.querySelector(".lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    const closeBtn = document.querySelector(".close-btn");
+      document.querySelectorAll(".product-card img").forEach((img) => {
+        img.addEventListener("click", (e) => {
+          e.preventDefault();
+          lightbox.style.display = "flex";
+          lightboxImg.src = img.src;
+        });
+      });
 
-    document.querySelectorAll(".product-card img").forEach((img) => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
+      closeBtn.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        lightboxImg.src = "";
+      });
+
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+          lightboxImg.src = "";
+        }
       });
     });
-
-    closeBtn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.style.display = "none";
-      }
-    });
-  });
-
-    <!-- Lightbox HTML first -->
-<div class="lightbox">
-  <span class="close-btn">&times;</span>
-  <img src="" alt="Product View" />
-</div>
-
-<!-- Script second -->
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const lightbox = document.querySelector(".lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    const closeBtn = document.querySelector(".close-btn");
-
-    document.querySelectorAll(".product-card img").forEach((img) => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-      });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.style.display = "none";
-      }
-    });
-  });
-</script>
+  </script>
 </body>
 </html>
