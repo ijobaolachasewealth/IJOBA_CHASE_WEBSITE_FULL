@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart - IJOBA CHASE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Logo -->
+  <header>
+    <img src="assets/logo.png" alt="IJOBA CHASE LOGO" class="logo" />
+  </header>
+
+  <main class="cart-section" style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div style="margin-top: 2rem;">
+      <a id="checkout-link" href="#" class="chat-button">Checkout on WhatsApp</a>
+    </div>
+  </main>
+
+  <!-- Back Button -->
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="index.html" class="chat-button" style="background-color: #ccc; color: #000;">⬅ Continue Shopping</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Ijoba Ola Chase Wealth. All rights reserved.
+  </footer>
+
+  <!-- Cart Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cartContainer = document.getElementById("cart-items");
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        document.getElementById("checkout-link").style.display = "none";
+        return;
+      }
+
+      // Render each cart item
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "product-card";
+        div.style.marginBottom = "1rem";
+
+        div.innerHTML = `
+          <img src="products/${item.image}" alt="${item.name}" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px;" />
+          <h3 style="margin-top: 0.5rem;">${item.name}</h3>
+          <button class="chat-button" style="background-color: red; margin-top: 0.5rem;" onclick="removeFromCart(${index})">Remove</button>
+        `;
+
+        cartContainer.appendChild(div);
+      });
+
+      // Generate WhatsApp checkout message
+      const message = encodeURIComponent(
+        "Hello, I want to place an order:\n\n" +
+        cart.map((p, i) => `${i + 1}. ${p.name}`).join("\n")
+      );
+      document.getElementById("checkout-link").href = "https://wa.me/2341234567890?text=" + message;
+    });
+
+    function removeFromCart(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload(); // Refresh the cart page
+    }
+  </script>
+
+</body>
+</html>
