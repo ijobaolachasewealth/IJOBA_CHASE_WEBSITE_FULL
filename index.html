@@ -23,6 +23,21 @@
   </div>
 </section>
 
+  <section class="features">
+  <div class="feature-card">
+    <h3>Fast Delivery</h3>
+    <p>Your logs ready in 24–48 hours.</p>
+  </div>
+  <div class="feature-card">
+    <h3>High Quality</h3>
+    <p>Select from premium log styles.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Secure Chat</h3>
+    <p>Contact us directly on WhatsApp.</p>
+  </div>
+</section>
+
   <h1>IJOBA CHASE LOGS SPACE</h1>
 
   <!-- Product Grid -->
@@ -115,6 +130,25 @@
       });
     });
   </script>
+
+  .features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+.feature-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  color: #25d366;
+}
 
 </body>
 </html>
