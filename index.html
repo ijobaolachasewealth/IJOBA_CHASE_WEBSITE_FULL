@@ -10,26 +10,26 @@
 <body>
 
   <!-- Navigation Menu -->
-<nav class="navbar">
-  <ul class="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#product">Product</a></li>
-    <li><a href="#store">Store</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#gifts">Gift Items Delivery</a></li>
-    <li><a href="#boost">Boost Social Media</a></li>
-    <li><a href="#virtual-number">Buy Virtual Number</a></li>
-  </ul>
-</nav>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#product">Product</a></li>
+      <li><a href="#store">Store</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#gifts">Gift Items Delivery</a></li>
+      <li><a href="#boost">Boost Social Media</a></li>
+      <li><a href="#virtual-number">Buy Virtual Number</a></li>
+    </ul>
+  </nav>
 
   <!-- Logo -->
   <header class="site-header">
-  <img src="assets/logo.png" alt="IJOBA CHASE LOGO" class="logo" />
-</header>
+    <img src="assets/logo.png" alt="IJOBA CHASE LOGO" class="logo" />
+  </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-content" data-aos="fade-up">
       <h2>EMPOWERING DIGITAL ACCESS</h2>
       <p>Welcome to IJOBA CHASE LOGS SPACE – your trusted source for secure and premium social media solutions.</p>
@@ -39,8 +39,8 @@
 
   <main>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Features Section (About) -->
+    <section class="features" id="about">
       <div class="feature-card">
         <h3>Fast Delivery</h3>
         <p>Your logs ready in 24–48 hours.</p>
@@ -58,13 +58,13 @@
     <!-- Title -->
     <h1>IJOBA CHASE LOGS SPACE</h1>
 
-    <!-- Product Grid -->
-    <section>
+    <!-- Product Grid Section -->
+    <section id="product">
       <div class="product-grid" id="product-container"></div>
     </section>
 
-    <!-- How It Works -->
-    <section class="steps">
+    <!-- How It Works Section (Store) -->
+    <section class="steps" id="store">
       <h2>How It Works</h2>
       <div class="step-cards">
         <div class="step-card"><strong>1.</strong><p>Select log</p></div>
@@ -74,10 +74,28 @@
       </div>
     </section>
 
+    <!-- Gift Items Delivery -->
+    <section id="gifts">
+      <h2 style="text-align:center;">Gift Items Delivery</h2>
+      <p style="text-align:center;">Coming soon...</p>
+    </section>
+
+    <!-- Boost Social Media -->
+    <section id="boost">
+      <h2 style="text-align:center;">Boost Social Media</h2>
+      <p style="text-align:center;">Coming soon...</p>
+    </section>
+
+    <!-- Buy Virtual Number -->
+    <section id="virtual-number">
+      <h2 style="text-align:center;">Buy Virtual Number</h2>
+      <p style="text-align:center;">Coming soon...</p>
+    </section>
+
   </main>
 
   <!-- Footer -->
-  <footer>
+  <footer id="contact">
     &copy; 2025 Ijoba Ola Chase Wealth. All rights reserved.
   </footer>
 
@@ -120,27 +138,26 @@
 
     const container = document.getElementById('product-container');
     products.forEach((product, index) => {
-  const card = document.createElement('div');
-  card.className = 'product-card';
-  card.setAttribute('data-aos', 'fade-up');
-  card.setAttribute('data-aos-delay', index * 100);
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.setAttribute('data-aos', 'fade-up');
+      card.setAttribute('data-aos-delay', index * 100);
 
-  card.innerHTML = `
-    <div class="image-link" style="cursor: pointer;">
-      <img src="products/${product.image}" alt="${product.name}" />
-    </div>
-    <h3>${product.name}</h3>
-    <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-  `;
+      card.innerHTML = `
+        <div class="image-link" style="cursor: pointer;">
+          <img src="products/${product.image}" alt="${product.name}" />
+        </div>
+        <h3>${product.name}</h3>
+        <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+      `;
 
-  // Make image clickable and store product data in localStorage
-  card.querySelector(".image-link").addEventListener("click", () => {
-    localStorage.setItem("selectedProduct", JSON.stringify(product));
-    window.location.href = "product.html";
-  });
+      card.querySelector(".image-link").addEventListener("click", () => {
+        localStorage.setItem("selectedProduct", JSON.stringify(product));
+        window.location.href = "product.html";
+      });
 
-  container.appendChild(card);
-});
+      container.appendChild(card);
+    });
   </script>
 
   <!-- Lightbox Script -->
