@@ -87,3 +87,41 @@ footer {
   background-color: #f2f2f2; /* light gray background */
   padding: 1rem 0; /* vertical spacing */
 }
+
+/* Lightbox Styles */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80vh;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1000;
+  transition: 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  color: #f44;
+}
