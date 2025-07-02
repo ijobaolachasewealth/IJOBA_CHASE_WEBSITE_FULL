@@ -10,8 +10,13 @@
 <body>
 
   <!-- Navigation Menu -->
-  <nav class="navbar">
-    <ul class="nav-links">
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <a href="index.html"><img src="assets/logo.png" alt="Logo" /></a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#product">Product</a></li>
@@ -21,7 +26,8 @@
       <li><a href="#boost">Boost Social Media</a></li>
       <li><a href="#virtual-number">Buy Virtual Number</a></li>
     </ul>
-  </nav>
+  </div>
+</nav>
 
   <!-- Logo -->
   <header class="site-header">
