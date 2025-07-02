@@ -8,14 +8,14 @@
 </head>
 <body>
 
-  <!-- Logo -->
+  <!-- Header -->
   <header>
     <img src="assets/logo.png" alt="IJOBA CHASE LOGO" class="logo" />
   </header>
 
   <!-- Product Detail Section -->
   <main class="product-detail">
-    <div class="product-card" id="product-display" style="max-width: 500px; margin: auto;"></div>
+    <div class="product-card" id="product-display"></div>
   </main>
 
   <!-- Back Button -->
@@ -28,7 +28,7 @@
     &copy; 2025 Ijoba Ola Chase Wealth. All rights reserved.
   </footer>
 
-  <!-- Product Load Script -->
+  <!-- Product Display + Add to Cart Logic -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const data = localStorage.getItem("selectedProduct");
@@ -41,26 +41,22 @@
 
       const product = JSON.parse(data);
 
-      // Inject the product details including Add to Cart button
       container.innerHTML = `
-        <img src="products/${product.image}" alt="${product.name}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px;" />
-        <h3 style="margin-top: 1rem;">${product.name}</h3>
-        <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button" style="margin-top: 1rem;">Chat on WhatsApp</a>
-        <button id="addToCartBtn" class="chat-button" style="margin-top: 1rem; background-color: #007bff;">Add to Cart</button>
+        <img src="products/${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat on WhatsApp</a>
+        <button id="addToCartBtn" class="add-to-cart-button">Add to Cart</button>
       `;
 
-      // Add to Cart Logic
+      // Add to cart logic
       setTimeout(() => {
-        const addToCartBtn = document.getElementById("addToCartBtn");
-        if (addToCartBtn) {
-          addToCartBtn.addEventListener("click", () => {
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            cart.push(product);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert(`${product.name} added to cart!`);
-          });
-        }
-      }, 0);
+        document.getElementById("addToCartBtn").addEventListener("click", () => {
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart.push(product);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert("Product added to cart!");
+        });
+      }, 100);
     });
   </script>
 </body>
