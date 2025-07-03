@@ -299,15 +299,16 @@
 </div>
 
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.getElementById('navLinks');
-    const links = navLinks.querySelectorAll('a');
+    const navLinks = document.querySelector('.nav-links');
 
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
     });
 
+    // Optional: Auto-close menu when a link is clicked (for better UX)
+    const links = document.querySelectorAll('.nav-links li a');
     links.forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('show');
