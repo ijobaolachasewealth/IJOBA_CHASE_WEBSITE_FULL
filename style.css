@@ -487,7 +487,7 @@ section {
   }
 
   .nav-links {
-    display: none;
+    display: none; /* Hide menu by default */
     flex-direction: column;
     background: #fff;
     position: absolute;
@@ -498,12 +498,8 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .nav-links li a {
-    color: #333;
-  }
-
   .nav-links.show {
-    display: flex;
+    display: flex; /* Only show when .show class is added by JavaScript */
   }
 
   .nav-links li {
