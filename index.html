@@ -299,19 +299,19 @@
 </div>
 
   <script>
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  const links = document.querySelectorAll('.nav-links li a');
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const links = navLinks.querySelectorAll('a');
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
 
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      if (navLinks.classList.contains('show')) {
-        navLinks.classList.remove('show'); // Collapse menu on link click
-      }
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+      });
     });
   });
 </script>
