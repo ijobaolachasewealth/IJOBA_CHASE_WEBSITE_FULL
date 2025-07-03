@@ -1,3 +1,4 @@
+
 /* ------------------------------
    RESET & BASE STYLES
 --------------------------------*/
@@ -479,7 +480,7 @@ section {
 }
 
 /* ------------------------------
-   RESPONSIVE NAV
+   RESPONSIVE NAV (REPLACED)
 --------------------------------*/
 @media (max-width: 768px) {
   .hamburger {
@@ -487,23 +488,42 @@ section {
   }
 
   .nav-links {
-    display: none; /* Hide menu by default */
+    display: none;
     flex-direction: column;
-    background: #fff;
+    background: #111;
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 0;
     width: 100%;
     padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%);
+    transition: transform 0.4s ease-in-out;
   }
 
   .nav-links.show {
-    display: flex; /* Only show when .show class is added by JavaScript */
+    display: flex;
+    transform: translateY(0);
   }
 
   .nav-links li {
-    margin: 0.5rem 0;
+    margin: 0.8rem 0;
+  }
+
+  .nav-links li a {
+    color: #fff;
+    padding: 0.6rem;
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    background: #203a43;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    background-color: #25d366;
+    color: #fff;
   }
 }
 
