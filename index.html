@@ -298,5 +298,23 @@
   <a href="https://instagram.com/ijobaolachasewealth" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
 </div>
 
+  <script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const links = document.querySelectorAll('.nav-links li a');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navLinks.classList.contains('show')) {
+        navLinks.classList.remove('show'); // Collapse menu on link click
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
