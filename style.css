@@ -676,3 +676,92 @@ section {
     margin: 0.5rem 0;
   }
 }
+
+/* (Existing confirmed styles up to MOBILE NAV included) */
+/* ... your full confirmed CSS here up to the mobile nav media query ... */
+
+/* ========================
+   ENHANCEMENTS START
+=========================== */
+
+/* Animated dark-blue navbar */
+.navbar {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  transition: background 0.5s ease;
+}
+.navbar:hover {
+  background: linear-gradient(to right, #203a43, #2c5364, #345a75);
+}
+
+/* Hamburger animation */
+.hamburger {
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+.hamburger:hover {
+  transform: rotate(90deg);
+}
+
+/* Font Awesome icons in nav links */
+.nav-links li a {
+  position: relative;
+  padding-left: 25px;
+}
+.nav-links li a::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+}
+.nav-links li:nth-child(1) a::before { content: "\f015"; } /* Home */
+.nav-links li:nth-child(2) a::before { content: "\f0f6"; } /* About */
+.nav-links li:nth-child(3) a::before { content: "\f290"; } /* Product */
+.nav-links li:nth-child(4) a::before { content: "\f07a"; } /* Store */
+.nav-links li:nth-child(5) a::before { content: "\f095"; } /* Contact */
+.nav-links li:nth-child(6) a::before { content: "\f06b"; } /* Gifts */
+.nav-links li:nth-child(7) a::before { content: "\f084"; } /* Boost */
+.nav-links li:nth-child(8) a::before { content: "\f10b"; } /* Virtual Number */
+.nav-links li a::before {
+  content: "\f0c9"; /* default */
+  margin-right: 8px;
+}
+
+/* Floating social icons */
+.floating-icons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  animation: slideIn 0.8s ease forwards;
+}
+.floating-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.floating-icons a:hover {
+  transform: translateY(-5px) scale(1.1);
+  background-color: #0056b3;
+}
+
+/* Pulse animation for social icons */
+@keyframes floatPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.floating-icons a:nth-child(odd) {
+  animation: floatPulse 5s ease-in-out infinite;
+}
+
+/* END OF ENHANCEMENTS */
