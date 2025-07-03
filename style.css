@@ -480,7 +480,7 @@ section {
 }
 
 /* ------------------------------
-   RESPONSIVE NAV (REPLACED)
+   RESPONSIVE NAV (Fixed)
 --------------------------------*/
 @media (max-width: 768px) {
   .hamburger {
@@ -488,42 +488,37 @@ section {
   }
 
   .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #111;
     position: absolute;
-    top: 60px;
-    left: 0;
+    top: 70px;
+    left: -100%;
     width: 100%;
-    padding: 1rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-100%);
-    transition: transform 0.4s ease-in-out;
+    background-color: #0f2027;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    transition: left 0.3s ease-in-out;
+    z-index: 998;
+    display: flex;
   }
 
   .nav-links.show {
-    display: flex;
-    transform: translateY(0);
+    left: 0;
   }
 
   .nav-links li {
-    margin: 0.8rem 0;
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 0;
   }
 
   .nav-links li a {
     color: #fff;
-    padding: 0.6rem;
-    display: block;
-    text-align: center;
     font-size: 1.1rem;
-    background: #203a43;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
   }
 
   .nav-links li a:hover {
-    background-color: #25d366;
-    color: #fff;
+    color: #25d366;
   }
 }
 
