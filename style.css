@@ -485,18 +485,22 @@ section {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+    cursor: pointer;
+    z-index: 1001;
   }
 
   .nav-links {
     display: none;
     flex-direction: column;
-    background: #fff;
+    background: linear-gradient(90deg, #061c2c, #0a2640);
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 0;
     width: 100%;
+    z-index: 1000;
     padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
   }
 
   .nav-links.show {
@@ -504,7 +508,9 @@ section {
   }
 
   .nav-links li {
-    margin: 0.5rem 0;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #0a2640;
   }
 }
 
