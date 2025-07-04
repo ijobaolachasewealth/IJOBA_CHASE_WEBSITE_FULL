@@ -103,6 +103,11 @@ section h2 {
   padding-top: 4rem; /* Creates space below the navbar */
 }
 
+.hero {
+  position: relative;
+  padding-top: 4rem;
+}
+
 /* ------------------------------
    FEATURES SECTION
 --------------------------------*/
@@ -594,6 +599,41 @@ section {
   .hero p {
     font-size: 1rem;
   }
+}
+
+.floating-icons {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.floating-icons a {
+  font-size: 24px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: floatZoom 6s ease-in-out infinite;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease;
+}
+
+.floating-icons a:hover {
+  transform: scale(1.2);
+}
+
+@keyframes floatZoom {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 /* END OF ENHANCEMENTS */
