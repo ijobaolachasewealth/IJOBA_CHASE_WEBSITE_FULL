@@ -404,7 +404,7 @@ section {
   top: 0;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  z-index: 1000;
   padding: 0.6rem 0;
   transition: background 0.5s ease;
 }
@@ -482,7 +482,7 @@ section {
 /* ------------------------------
    RESPONSIVE NAV (Fixed)
 --------------------------------*/
-@media (max-width: 768px) {
+@media (max-width: 768px) { 
   .hamburger {
     display: block;
     cursor: pointer;
@@ -494,13 +494,16 @@ section {
     flex-direction: column;
     background: linear-gradient(90deg, #061c2c, #0a2640);
     position: absolute;
-    top: 60px;
+    top: 60px; /* Adjust if your navbar is taller */
     left: 0;
+    right: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1rem;
+    padding: 1rem 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .nav-links.show {
@@ -508,9 +511,13 @@ section {
   }
 
   .nav-links li {
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: center;
-    border-bottom: 1px solid #0a2640;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links li:last-child {
+    border-bottom: none;
   }
 }
 
