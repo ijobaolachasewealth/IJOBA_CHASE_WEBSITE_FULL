@@ -99,6 +99,10 @@ section h2 {
   background-color: #1ebc57;
 }
 
+.hero {
+  padding-top: 4rem; /* Creates space below the navbar */
+}
+
 /* ------------------------------
    FEATURES SECTION
 --------------------------------*/
@@ -482,6 +486,13 @@ section {
 /* ------------------------------
    RESPONSIVE NAV (Fixed)
 --------------------------------*/
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
 /* ------------------------------
    FINAL FIXED RESPONSIVE NAV
 ------------------------------ */
@@ -564,6 +575,25 @@ section {
 
 .floating-icons a:nth-child(odd) {
   animation: floatPulse 5s ease-in-out infinite;
+}
+
+.hero {
+  padding-top: 4rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
 }
 
 /* END OF ENHANCEMENTS */
