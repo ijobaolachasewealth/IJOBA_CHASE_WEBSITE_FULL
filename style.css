@@ -173,11 +173,18 @@ transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .step-card {
-  background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
-  width: 120px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to top left, #ffffff, #ecf8ff);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 123, 255, 0.2);
 }
 
 .step-card strong {
@@ -335,6 +342,21 @@ transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 
 .product-card .add-to-cart-button:hover {
   background-color: #0056b3;
+}
+
+.product-card {
+  background: linear-gradient(to bottom right, #ffffff, #ecf7ff);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(to bottom right, #e0f7ff, #ffffff);
+  box-shadow: 0 12px 32px rgba(0, 123, 255, 0.2);
 }
 
 /* ------------------------------
@@ -564,16 +586,16 @@ section {
   }
 }
 
-/* ------------------------------
-   FLOATING ICONS
---------------------------------*/
+//* ----------------------------
+   FLOATING ICONS - FINAL GLOWING STYLE
+---------------------------- */
 .floating-icons {
   position: fixed;
   bottom: 20px;
   right: 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 15px;
   z-index: 1000;
   animation: slideIn 0.8s ease forwards;
 }
@@ -582,72 +604,28 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
-  background-color: #007bff;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
-  border-radius: 50%;
   font-size: 1.4rem;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  animation: floatZoom 6s ease-in-out infinite;
 }
 
 .floating-icons a:hover {
-  transform: translateY(-5px) scale(1.1);
-  background-color: #0056b3;
+  transform: scale(1.2);
+  background-color: #25d366;
+  box-shadow: 0 0 18px #25d366, 0 0 24px #25d366;
 }
 
-@keyframes floatPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-
-.floating-icons a:nth-child(odd) {
-  animation: floatPulse 5s ease-in-out infinite;
-}
-
-.hero {
-  padding-top: 4rem;
-}
-
-@media (max-width: 768px) {
-  .hero-content {
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .hero h2 {
-    font-size: 1.5rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
-.floating-icons {
-  position: absolute;
-  top: 20%;
-  left: 5%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 10;
-}
-
-.floating-icons a {
-  font-size: 24px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: floatZoom 6s ease-in-out infinite;
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s ease;
+@keyframes floatZoom {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 .floating-icons a:hover {
@@ -669,6 +647,47 @@ section {
   object-fit: cover;
   z-index: -1;
   opacity: 0.15; /* You can adjust this to make video more/less visible */
+}
+
+/* -------------------------------
+   CONTACT SECTION STYLING
+----------------------------------*/
+.contact {
+  background: linear-gradient(to right, #ffffff, #f2f9ff);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #203a43;
+  text-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.contact p {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.contact a {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #25d366;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.contact a:hover {
+  background-color: #1ebc57;
+  box-shadow: 0 0 15px #1ebc57, 0 0 30px #1ebc57;
 }
 
 /* END OF ENHANCEMENTS */
