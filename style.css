@@ -14,8 +14,8 @@ html {
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #f8f9fa, #e0e0e0);
-  color: #333;
+  background: linear-gradient(135deg, #ffffff, #eaf6ff);
+  color: #111;
   padding: 20px;
   line-height: 1.6;
 }
@@ -133,11 +133,17 @@ section h2 {
 }
 
 .feature-card {
-  background: white;
+  background: #ffffff;
   padding: 1.5rem;
   border-radius: 1rem;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
 }
 
 .feature-card h3 {
