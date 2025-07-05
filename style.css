@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffffff, #eaf6ff);
+  background: linear-gradient(135deg, #ffffff, #cdefff, #ffffff);
   color: #111;
   padding: 20px;
   line-height: 1.6;
@@ -68,7 +68,7 @@ section h2 {
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* fallback if video doesn't load */
+  background: transparent; /* Removes dark gradient to let video shine */
   color: white;
   z-index: 1;
 }
@@ -88,14 +88,17 @@ section h2 {
   position: relative;
   z-index: 2;
   color: white;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Helps readability */
 }
 
 .hero h2 {
   font-size: 2.8rem;
   margin-bottom: 20px;
   font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 
+               0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .hero p {
@@ -118,6 +121,7 @@ section h2 {
 
 .hero-btn:hover {
   background-color: #1ebc57;
+  box-shadow: 0 0 12px #1ebc57, 0 0 24px #1ebc57;
 }
 
 /* ------------------------------
@@ -133,7 +137,7 @@ section h2 {
 }
 
 .feature-card {
-  background: #ffffff;
+  background: linear-gradient(to bottom right, #ffffff, #f0faff, #e6f7ff);
   padding: 1.5rem;
   border-radius: 1rem;
   text-align: center;
@@ -144,6 +148,8 @@ section h2 {
 .feature-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
+   background: linear-gradient(to bottom right, #e6f7ff, #ffffff);
+transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card h3 {
