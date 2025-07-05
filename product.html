@@ -59,5 +59,21 @@
       }, 100);
     });
   </script>
+
+  <script>
+  function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const countBadge = document.querySelector('.cart-count-badge');
+    if (countBadge) {
+      countBadge.textContent = cartItems.length;
+    }
+  }
+
+  // Run on page load
+  updateCartCount();
+
+  // Optional: Sync live if using buttons to modify cart
+  window.addEventListener('storage', updateCartCount);
+</script>
 </body>
 </html>
