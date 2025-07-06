@@ -762,4 +762,10 @@ section {
   margin-left: 6px;
 }
 
+.cart-link i {
+  font-size: 1.2rem;
+  margin-right: 0.4rem;
+  color: white;
+}
+
 /* END OF ENHANCEMENTS */
