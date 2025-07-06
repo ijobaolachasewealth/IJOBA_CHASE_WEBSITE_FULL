@@ -77,11 +77,12 @@ section h2 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   object-fit: cover;
-  z-index: -1;
-  opacity: 0.15; /* You can increase/decrease this to control darkness */
+  z-index: 0;
+  opacity: 1;
+  filter: brightness(1); /* Fully visible */
 }
 
 .hero-content {
@@ -766,6 +767,11 @@ section {
   font-size: 1.2rem;
   margin-right: 0.4rem;
   color: white;
+}
+
+.cart-link:hover i {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
 }
 
 /* END OF ENHANCEMENTS */
