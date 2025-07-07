@@ -789,4 +789,29 @@ section {
   filter: brightness(1);
 }
 
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.cart-link:hover {
+  transform: scale(1.1);
+  color: #00ffcc; /* or any accent color you prefer */
+}
+
+.cart-count-badge {
+  background-color: crimson;
+  color: white;
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  margin-left: 0.2rem;
+  font-weight: bold;
+}
+
 /* END OF ENHANCEMENTS */
