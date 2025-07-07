@@ -480,6 +480,14 @@ section {
   color: #25d366;
 }
 
+.nav-links a {
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #00ffcc;
+}
+
 /* ------------------------------
    RESPONSIVE NAV (Fixed)
 --------------------------------*/
