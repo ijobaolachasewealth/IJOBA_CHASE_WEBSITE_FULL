@@ -109,8 +109,6 @@ section h2 {
   color: black;
 }
 
-}
-
 .hero-btn {
   display: inline-block;
   padding: 12px 30px;
@@ -126,6 +124,23 @@ section h2 {
 .hero-btn:hover {
   background-color: #1ebc57;
   box-shadow: 0 0 12px #1ebc57, 0 0 24px #1ebc57;
+}
+
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #111;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.hero p {
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
 /* ------------------------------
@@ -753,28 +768,18 @@ section {
     display: block;
     width: 100%;
     text-align: center;
-  }
-}
-
-.cart-count-badge {
-  background-color: crimson;
-  color: white;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
-  margin-left: 6px;
 }
 
 .cart-link i {
   font-size: 1.2rem;
   margin-right: 0.4rem;
   color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .cart-link:hover i {
-  transform: scale(1.2);
-  transition: transform 0.3s ease;
+  transform: scale(1.1);
+  color: #00ffcc;
 }
 
 .hero-video-bg {
@@ -799,9 +804,10 @@ section {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.cart-link:hover {
+/* Cart icon hover color */
+.cart-link:hover i {
   transform: scale(1.1);
-  color: #00ffcc; /* or any accent color you prefer */
+  color: #00ffcc;
 }
 
 .cart-count-badge {
