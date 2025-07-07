@@ -86,6 +86,16 @@ section h2 {
   pointer-events: none; /* ✅ hides play button interaction */
 }
 
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* adjust opacity if needed */
+  z-index: 0;
+}
+
 @media (max-width: 768px) {
   .hero-video-bg {
     filter: brightness(0.4) blur(2px); /* dim and slightly blur */
