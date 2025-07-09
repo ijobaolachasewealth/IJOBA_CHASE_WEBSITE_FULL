@@ -419,6 +419,7 @@ section {
 .navbar {
   position: sticky;
   top: 0;
+  width: 100%;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -439,31 +440,39 @@ section {
   justify-content: space-between;
 }
 
+/* Logo */
+.logo img,
 .navbar .logo img {
   height: 60px;
   max-width: 180px;
   object-fit: contain;
+  display: block;
 }
 
 @media (max-width: 768px) {
+  .logo img,
   .navbar .logo img {
     height: 50px;
     max-width: 150px;
   }
 }
 
+/* Hamburger */
 .hamburger {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
   transition: transform 0.3s ease;
+  z-index: 1001;
   user-select: none;
+  color: white;
 }
 
-.hamburger:hover {
+.hamburger.is-active {
   transform: rotate(90deg);
 }
 
+/* Navigation Links */
 .nav-links {
   display: flex;
   list-style: none;
@@ -488,64 +497,58 @@ section {
   font-weight: 900;
   position: absolute;
   left: 0;
-  content: "\f0c9";
-  margin-right: 8px;
 }
 
-.nav-links li:nth-child(1) a::before { content: "\f015"; }
-.nav-links li:nth-child(2) a::before { content: "\f0f6"; }
-.nav-links li:nth-child(3) a::before { content: "\f290"; }
-.nav-links li:nth-child(4) a::before { content: "\f07a"; }
-.nav-links li:nth-child(5) a::before { content: "\f095"; }
+.nav-links li:nth-child(1) a::before { content: "\f015"; } /* Home */
+.nav-links li:nth-child(2) a::before { content: "\f0f6"; } /* About */
+.nav-links li:nth-child(3) a::before { content: "\f290"; } /* Product */
+.nav-links li:nth-child(4) a::before { content: "\f07a"; } /* Store */
+.nav-links li:nth-child(5) a::before { content: "\f095"; } /* Cart/Contact */
 .nav-links li:nth-child(6) a::before { content: "\f06b"; }
 .nav-links li:nth-child(7) a::before { content: "\f084"; }
 .nav-links li:nth-child(8) a::before { content: "\f10b"; }
 
 .nav-links li a:hover {
-  color: #25d366;
-}
-
-.nav-links a {
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
   color: #00ffcc;
 }
 
-/* ------------------------------
-   RESPONSIVE NAV (Fixed)
---------------------------------*/
-@media (max-width: 768px) {
-  .hero-content {
-    text-align: center;
-    padding: 1rem;
-  }
+/* Cart badge (optional) */
+.cart-link {
+  position: relative;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #25d366;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
 }
 
 /* ------------------------------
-   FINAL FIXED RESPONSIVE NAV
------------------------------- */
+   RESPONSIVE NAVIGATION
+--------------------------------*/
 @media (max-width: 768px) {
   .hamburger {
     display: block;
-    cursor: pointer;
-    z-index: 1001;
   }
 
   .nav-links {
     display: none !important;
     flex-direction: column;
+    align-items: center;
     background: linear-gradient(90deg, #061c2c, #0a2640);
     position: absolute;
-    top: 60px;
+    top: 100%;
     left: 0;
-    right: 0;
     width: 100%;
-    z-index: 1000;
     padding: 1rem 0;
+    z-index: 1000;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease-in-out;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
@@ -555,13 +558,19 @@ section {
   }
 
   .nav-links li {
-    padding: 1rem 0;
+    width: 100%;
     text-align: center;
+    padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-links li:last-child {
     border-bottom: none;
+  }
+
+  .hero-content {
+    text-align: center;
+    padding: 1rem;
   }
 }
 
