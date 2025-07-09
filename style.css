@@ -532,10 +532,6 @@ section {
    RESPONSIVE NAVIGATION
 --------------------------------*/
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
   .nav-links {
     display: none !important;
     flex-direction: column;
@@ -555,6 +551,7 @@ section {
   .nav-links.show {
     display: flex !important;
   }
+}
 
   .nav-links li {
     width: 100%;
