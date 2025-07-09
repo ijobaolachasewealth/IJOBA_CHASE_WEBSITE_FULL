@@ -8,7 +8,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="style.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -22,7 +22,6 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Sticky, Dark, Animated Navbar */
     .navbar {
       position: sticky;
       top: 0;
@@ -90,7 +89,7 @@
         margin-top: 1rem;
       }
 
-      .nav-links.active {
+      .nav-links.show {
         max-height: 500px;
       }
 
@@ -100,7 +99,6 @@
       }
     }
 
-    /* Floating Social Icons */
     .floating-icons {
       position: fixed;
       bottom: 20px;
@@ -133,7 +131,6 @@
 </head>
 <body>
 
-<!-- Load header.html dynamically -->
 <div id="header"></div>
 <script>
   fetch('header.html')
@@ -143,7 +140,6 @@
     });
 </script>
 
-<!-- Load hero.html dynamically -->
 <div id="hero-section"></div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -156,110 +152,102 @@
 </script>
 
 <main>
-  <!-- Load about.html dynamically -->
-<div id="about-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('about.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('about-section').innerHTML = data;
-      });
+  <div id="about-section"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('about.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('about-section').innerHTML = data;
+        });
   });
-</script>
+  </script>
 
- <!-- Load product-grid.html dynamically AND populate it -->
-<div id="product-grid-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('product-grid.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('product-grid-section').innerHTML = data;
+  <div id="product-grid-section"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('product-grid.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('product-grid-section').innerHTML = data;
 
-        // ✅ Now safely access and load the products
-        const products = [
-          { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
-          { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
-          { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
-          { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
-        ];
+          const products = [
+            { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
+            { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
+            { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
+            { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
+          ];
 
-        const container = document.getElementById('product-container');
-        if (container) {
-          products.forEach((product, index) => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.setAttribute('data-aos', 'fade-up');
-            card.setAttribute('data-aos-delay', index * 100);
-            card.innerHTML = `
-              <div class="image-link" style="cursor: pointer;">
-                <img src="products/${product.image}" alt="${product.name}" />
-              </div>
-              <h3>${product.name}</h3>
-              <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-            `;
-            card.querySelector(".image-link").addEventListener("click", () => {
-              localStorage.setItem("selectedProduct", JSON.stringify(product));
-              window.location.href = "product.html";
+          const container = document.getElementById('product-container');
+          if (container) {
+            products.forEach((product, index) => {
+              const card = document.createElement('div');
+              card.className = 'product-card';
+              card.setAttribute('data-aos', 'fade-up');
+              card.setAttribute('data-aos-delay', index * 100);
+              card.innerHTML = `
+                <div class="image-link" style="cursor: pointer;">
+                  <img src="products/${product.image}" alt="${product.name}" />
+                </div>
+                <h3>${product.name}</h3>
+                <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+              `;
+              card.querySelector(".image-link").addEventListener("click", () => {
+                localStorage.setItem("selectedProduct", JSON.stringify(product));
+                window.location.href = "product.html";
+              });
+              container.appendChild(card);
             });
-            container.appendChild(card);
-          });
-        }
-      });
+          }
+        });
   });
-</script>
+  </script>
 
-  <!-- Load store.html dynamically -->
-<div id="store-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('store.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('store-section').innerHTML = data;
-      });
+  <div id="store-section"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('store.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('store-section').innerHTML = data;
+        });
   });
-</script>
+  </script>
 
-  <!-- Load gifts.html -->
-<div id="gifts-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('gifts.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('gifts-section').innerHTML = data;
-      });
+  <div id="gifts-section"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('gifts.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('gifts-section').innerHTML = data;
+        });
   });
-</script>
+  </script>
 
-<!-- Load boost.html -->
-<div id="boost-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('boost.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('boost-section').innerHTML = data;
-      });
+  <div id="boost-section"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('boost.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('boost-section').innerHTML = data;
+        });
   });
-</script>
+  </script>
 
-<!-- Load virtual-number.html -->
-<div id="virtual-number-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('virtual-number.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('virtual-number-section').innerHTML = data;
-      });
+  <div id="virtual-number-section"></div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('virtual-number.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('virtual-number-section').innerHTML = data;
+        });
   });
-</script>
+  </script>
 </main>
 
-<!-- Load footer.html -->
 <div id="footer-section"></div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -271,13 +259,11 @@
   });
 </script>
 
-<!-- Lightbox Viewer -->
 <div id="lightbox" class="lightbox">
   <span class="close-btn" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="" alt="Full View" />
 </div>
 
-<!-- Load floating-icons.html -->
 <div id="floating-icons-section"></div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -289,32 +275,31 @@
   });
 </script>
 
-<!-- External JS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
-<script src="https://kit.fontawesome.com/212a7fbc8b.js" crossorigin="anonymous"></script>
 <script src="script.js"></script>
 
-<!-- Navbar Toggle -->
+<!-- Hamburger Toggle Logic -->
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    }
   });
 </script>
 
-<!-- Lightbox Fix -->
 <script>
   function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
     document.getElementById("lightbox-img").src = "";
   }
-
   document.addEventListener("DOMContentLoaded", () => {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
-
     document.addEventListener("click", function (e) {
       const imageDiv = e.target.closest(".image-link");
       if (imageDiv) {
@@ -325,7 +310,6 @@
         }
       }
     });
-
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) {
         closeLightbox();
@@ -334,7 +318,6 @@
   });
 </script>
 
-<!-- Cart Count Sync -->
 <script>
   function updateCartCount() {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
