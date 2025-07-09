@@ -75,7 +75,7 @@ section h2 {
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  background: transparent; /* Removes dark gradient to let video shine */
+  background: linear-gradient(to bottom right, #001f3f, #003366, #000814); /* ⬅ Your stylish gradient */
   color: white;
   z-index: 1;
 }
@@ -87,20 +87,10 @@ section h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2;
   opacity: 1;
   filter: brightness(1.05);
   pointer-events: none; /* ✅ hides play button interaction */
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* adjust opacity if needed */
-  z-index: 0;
 }
 
 @media (max-width: 768px) {
@@ -447,9 +437,9 @@ section {
   justify-content: space-between;
 }
 
-.navbar-logo img {
-  height: 50px; /* or higher */
-  max-width: auto;
+.navbar .logo img {
+  height: 65px;
+  max-height: 70px;
 }
 
 .hamburger {
