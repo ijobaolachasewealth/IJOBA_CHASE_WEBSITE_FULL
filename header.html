@@ -1,43 +1,39 @@
 <!-- header.html -->
-<header class="navbar sticky">
-  <div class="container">
-    <div class="logo">
-      <a href="#"><img src="images/logo.png" alt="IJOBA CHASE Logo" /></a>
-    </div>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <img src="assets/logo.png" alt="IJOBA CHASE LOGO" />
+    </a>
 
-    <nav class="nav-links" id="navMenu">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#products">Product</a>
-      <a href="#store">Store</a>
-      <a href="#contact">Contact</a>
-      <a href="#gift-items">Gift Items Delivery</a>
-      <a href="#boost">Boost Social Media</a>
-      <a href="#virtual-number">Buy Virtual Number</a>
-    </nav>
-
-    <div class="menu-toggle" id="menuToggle">
+    <div class="hamburger" id="hamburger">
       <i class="fas fa-bars"></i>
     </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#product">Product</a></li>
+      <li><a href="#store">Store</a></li>
+      <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count-badge">0</span></a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#gift">Gift Items Delivery</a></li>
+      <li><a href="#boost">Boost Social Media</a></li>
+      <li><a href="#virtual">Buy Virtual Number</a></li>
+    </ul>
   </div>
-</header>
+</nav>
 
 <script>
-  // Mobile menu toggle
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 
-    toggle.addEventListener("click", function () {
-      navMenu.classList.toggle("active");
-    });
-
-    // Close menu on link click (mobile)
-    document.querySelectorAll('#navMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
+  // Optional: close menu when a link is clicked (for mobile)
+  document.querySelectorAll('#nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
     });
   });
 </script>
-
