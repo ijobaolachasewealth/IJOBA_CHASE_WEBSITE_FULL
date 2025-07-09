@@ -3,311 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IJoba Chase - Products</title> 
-
-  <!-- Stylesheets -->
+  <title>IJOBA CHASE</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: #111;
-      background: #fff;
-    }
-    h1, h2, h3, h4, h5 {
-      font-family: 'Poppins', sans-serif;
-    }
-
-    /* Sticky, Dark, Animated Navbar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: linear-gradient(90deg, #061c2c, #0a2640);
-      z-index: 1000;
-      padding: 0.8rem 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      animation: slideDown 0.5s ease;
-    }
-
-    @keyframes slideDown {
-      from { top: -80px; opacity: 0; }
-      to { top: 0; opacity: 1; }
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .nav-logo img {
-      max-width: 60px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      transition: max-height 0.4s ease;
-    }
-
-    .nav-links li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links li a:hover {
-      color: #25d366;
-    }
-
-    .hamburger {
-      font-size: 1.5rem;
-      color: #fff;
-      display: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        background: #0a2640;
-        margin-top: 1rem;
-      }
-
-      .nav-links.active {
-        max-height: 500px;
-      }
-
-      .nav-links li {
-        text-align: center;
-        padding: 0.8rem 0;
-      }
-    }
-
-    /* Floating Social Icons */
-    .floating-icons {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 999;
-    }
-
-    .floating-icons a {
-      background: #25d366;
-      color: #fff;
-      font-size: 1.2rem;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background 0.3s ease;
-    }
-
-    .floating-icons a:hover {
-      background: #1ebc57;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papdOe+6qvKj5D0x2PAfY8+9nZb+v8hA0ebVnB++sGy0Gp7uT8tYAtqwW5Z4oOQp2P57dbxYHT6e6xVLaBq+kw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
-<!-- Navigation Menu -->
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="#home" class="nav-logo">
-      <img src="assets/logo.png" alt="IJOBA CHASE LOGO" />
-    </a>
-
-    <div class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#product">Product</a></li>
-      <li><a href="#store">Store</a></li>
-      <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count-badge">0</span></a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#gift">Gift Items Delivery</a></li>
-      <li><a href="#boost">Boost Social Media</a></li>
-      <li><a href="#virtual">Buy Virtual Number</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO SECTION -->
-<section class="hero" id="hero">
-  <video class="hero-video-bg" autoplay muted loop playsinline>
-    <source src="assets/168163362-4k-social-media-icons-floating.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="hero-content" data-aos="fade-up">
-    <h2>Simplifying the Purchase of Social Media Accounts</h2>
-    <p>Welcome to IJOBA CHASE LOGS SPACE – your trusted source for secure and premium social media solutions...</p>
-    <a href="https://wa.me/2349127377337?text=Hello%20I%20want%20to%20get%20started" class="hero-btn">Get Started</a>
-  </div>
-</section>
-
-<main>
-  <!-- About / Features Section -->
-  <section class="features" id="about">
-    <div class="feature-card"><h3>Fast Delivery</h3><p>Your logs ready in 24–48 hours.</p></div>
-    <div class="feature-card"><h3>High Quality</h3><p>Select from premium log styles.</p></div>
-    <div class="feature-card"><h3>Secure Chat</h3><p>Contact us directly on WhatsApp.</p></div>
-  </section>
-
-  <h1>IJOBA CHASE LOGS SPACE</h1>
-
-  <!-- Product Grid -->
-  <section id="product">
-    <div class="product-grid" id="product-container"></div>
-  </section>
-
-  <!-- Store / How it works -->
-  <section class="steps" id="store">
-    <h2>How It Works</h2>
-    <div class="step-cards">
-      <div class="step-card"><strong>1.</strong><p>Select log</p></div>
-      <div class="step-card"><strong>2.</strong><p>Chat via WhatsApp</p></div>
-      <div class="step-card"><strong>3.</strong><p>Place & confirm order</p></div>
-      <div class="step-card"><strong>4.</strong><p>Delivered fast</p></div>
-    </div>
-  </section>
-
-  <!-- Coming Soon Sections -->
-  <section id="gifts"><h2 style="text-align:center;">Gift Items Delivery</h2><p style="text-align:center;">Coming soon...</p></section>
-  <section id="boost"><h2 style="text-align:center;">Boost Social Media</h2><p style="text-align:center;">Coming soon...</p></section>
-  <section id="virtual-number"><h2 style="text-align:center;">Buy Virtual Number</h2><p style="text-align:center;">Coming soon...</p></section>
-</main>
-
-<!-- Footer -->
-<footer id="contact">
-  &copy; 2025 Ijoba Ola Chase Wealth. All rights reserved.
-</footer>
-
-<!-- Lightbox Viewer -->
-<div id="lightbox" class="lightbox">
-  <span class="close-btn" onclick="closeLightbox()">&times;</span>
-  <img id="lightbox-img" src="" alt="Full View" />
-</div>
-
-<!-- Floating Social Icons -->
-<div class="floating-icons">
-  <a href="https://wa.me/2349127377337" target="_blank" class="float-icon whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-  <a href="mailto:ijobaolachasewealth@gmail.com" target="_blank" class="float-icon email" title="Email"><i class="fas fa-envelope"></i></a>
-  <a href="https://instagram.com/ijobaolachasewealth" target="_blank" class="float-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-</div>
-
-<!-- External JS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-<script src="https://kit.fontawesome.com/212a7fbc8b.js" crossorigin="anonymous"></script>
-<script src="script.js"></script>
-
-<!-- Navbar Toggle -->
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-</script>
-
-<!-- Lightbox Fix -->
-<script>
-  function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-    document.getElementById("lightbox-img").src = "";
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-
-    document.addEventListener("click", function (e) {
-      const imageDiv = e.target.closest(".image-link");
-      if (imageDiv) {
-        const img = imageDiv.querySelector("img");
-        if (img) {
-          lightboxImg.src = img.src;
-          lightbox.style.display = "flex";
-        }
-      }
-    });
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-  });
-</script>
-
-<!-- Product Load -->
-<script>
-  const products = [
-    { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
-    { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
-    { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
-    { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
-  ];
-
-  const container = document.getElementById('product-container');
-  products.forEach((product, index) => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.setAttribute('data-aos', 'fade-up');
-    card.setAttribute('data-aos-delay', index * 100);
-    card.innerHTML = `
-      <div class="image-link" style="cursor: pointer;">
-        <img src="products/${product.image}" alt="${product.name}" />
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Logo" />
       </div>
-      <h3>${product.name}</h3>
-      <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-    `;
-    card.querySelector(".image-link").addEventListener("click", () => {
-      localStorage.setItem("selectedProduct", JSON.stringify(product));
-      window.location.href = "product.html";
-    });
-    container.appendChild(card);
-  });
-</script>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Product</a></li>
+        <li><a href="#store">Store</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#gift">Gift Items Delivery</a></li>
+        <li><a href="#boost">Boost Social Media</a></li>
+        <li><a href="#virtual">Buy Virtual Number</a></li>
+        <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i><span class="cart-count-badge" id="cart-count">0</span></a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
 
-<!-- Cart Count Sync -->
-<script>
-  function updateCartCount() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const countBadge = document.querySelector('.cart-count-badge');
-    if (countBadge) {
-      countBadge.textContent = cartItems.length;
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="background-video.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+      <h2>Welcome to IJOBA CHASE</h2>
+      <p>Your ultimate source for trusted services and gift delivery solutions</p>
+      <a href="#products" class="hero-btn">Explore Products</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="about">
+    <div class="feature-card">
+      <h3>Fast Delivery</h3>
+      <p>We deliver across the nation with speed and care.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Top Quality</h3>
+      <p>Only the best products make it to your hands.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Support</h3>
+      <p>We’re here 24/7 to help with your orders and inquiries.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid" id="product-container">
+      <!-- Products will be dynamically inserted here -->
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img src="" alt="Lightbox Image" id="lightbox-img" />
+  </div>
+
+  <!-- FLOATING ICONS -->
+  <div class="floating-icons">
+    <a href="https://wa.me/2348100000000" target="_blank" class="float-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:support@ijobachase.com" class="float-icon email"><i class="fas fa-envelope"></i></a>
+    <a href="https://instagram.com/ijobachase" target="_blank" class="float-icon instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 IJOBA CHASE. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('active');
     }
-  }
-  updateCartCount();
-  window.addEventListener('storage', updateCartCount);
-</script>
 
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-links').classList.remove('active');
+      });
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('closeBtn');
+    document.querySelectorAll('.product-card img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
