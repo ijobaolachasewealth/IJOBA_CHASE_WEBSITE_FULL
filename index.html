@@ -309,28 +309,5 @@
   window.addEventListener('storage', updateCartCount);
 </script>
 
-<!-- Scroll to Top Button -->
-<button id="scrollTopBtn" title="Go to top">
-  ↑
-</button>
-
-  <script>
-  const scrollBtn = document.getElementById("scrollTopBtn");
-
-  // Show button when scrolling down
-  window.onscroll = () => {
-    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-      scrollBtn.classList.add("show");
-    } else {
-      scrollBtn.classList.remove("show");
-    }
-  };
-
-  // Scroll to top when clicked
-  scrollBtn.onclick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-</script>
-
 </body>
 </html>
