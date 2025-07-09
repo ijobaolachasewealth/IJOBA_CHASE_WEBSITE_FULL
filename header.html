@@ -1,7 +1,7 @@
 <!-- header.html -->
 <nav class="navbar">
   <div class="nav-container">
-    <a href="#home" class="nav-logo">
+    <a href="#home" class="logo">
       <img src="assets/logo.png" alt="IJOBA CHASE LOGO" />
     </a>
 
@@ -26,11 +26,12 @@
 <script>
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
+
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
 
-  // Optional: close menu when a link is clicked (for mobile)
+  // Optional: close menu when link is clicked (mobile)
   document.querySelectorAll('#nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
