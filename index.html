@@ -231,10 +231,17 @@
 </script>
 </main>
 
-<!-- Footer -->
-<footer id="contact">
-  &copy; 2025 Ijoba Ola Chase Wealth. All rights reserved.
-</footer>
+<!-- Load footer.html -->
+<div id="footer-section"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-section').innerHTML = data;
+      });
+  });
+</script>
 
 <!-- Lightbox Viewer -->
 <div id="lightbox" class="lightbox">
