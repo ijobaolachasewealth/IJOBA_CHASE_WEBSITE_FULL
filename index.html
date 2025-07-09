@@ -182,16 +182,17 @@
   });
 </script>
 
-  <!-- Store / How it works -->
-  <section class="steps" id="store">
-    <h2>How It Works</h2>
-    <div class="step-cards">
-      <div class="step-card"><strong>1.</strong><p>Select log</p></div>
-      <div class="step-card"><strong>2.</strong><p>Chat via WhatsApp</p></div>
-      <div class="step-card"><strong>3.</strong><p>Place & confirm order</p></div>
-      <div class="step-card"><strong>4.</strong><p>Delivered fast</p></div>
-    </div>
-  </section>
+  <!-- Load store.html dynamically -->
+<div id="store-section"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('store.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('store-section').innerHTML = data;
+      });
+  });
+</script>
 
   <!-- Coming Soon Sections -->
   <section id="gifts"><h2 style="text-align:center;">Gift Items Delivery</h2><p style="text-align:center;">Coming soon...</p></section>
