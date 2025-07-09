@@ -146,11 +146,13 @@
 <!-- Load hero.html dynamically -->
 <div id="hero-section"></div>
 <script>
-  fetch('hero.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('hero-section').innerHTML = data;
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('hero.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('hero-section').innerHTML = data;
+      });
+  });
 </script>
 
 <main>
