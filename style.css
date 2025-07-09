@@ -115,7 +115,7 @@ section h2 {
 
 .hero p {
   font-size: 1.2rem;
-  color: #111;
+  color: #f3f3f3; /* ✅ Light color for contrast */
   line-height: 1.6;
   text-align: center;
   font-weight: 500;
@@ -137,15 +137,6 @@ section h2 {
 .hero-btn:hover {
   background-color: #1ebc57;
   box-shadow: 0 0 12px #1ebc57, 0 0 24px #1ebc57;
-}
-
-.hero h1 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
-  color: #111;
-  text-align: center;
-  margin-top: 1rem;
 }
 
 /* ------------------------------
