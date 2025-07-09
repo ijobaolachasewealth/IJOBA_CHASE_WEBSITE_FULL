@@ -133,42 +133,15 @@
 </head>
 <body>
 
-<!-- Navigation Menu -->
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="#home" class="nav-logo">
-      <img src="assets/logo.png" alt="IJOBA CHASE LOGO" />
-    </a>
-
-    <div class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#product">Product</a></li>
-      <li><a href="#store">Store</a></li>
-      <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count-badge">0</span></a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#gift">Gift Items Delivery</a></li>
-      <li><a href="#boost">Boost Social Media</a></li>
-      <li><a href="#virtual">Buy Virtual Number</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- HERO SECTION -->
-<section class="hero" id="hero">
-  <video class="hero-video-bg" autoplay muted loop playsinline>
-    <source src="assets/168163362-4k-social-media-icons-floating.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="hero-content" data-aos="fade-up">
-    <h2>Simplifying the Purchase of Social Media Accounts</h2>
-    <p>Welcome to IJOBA CHASE LOGS SPACE – your trusted source for secure and premium social media solutions...</p>
-    <a href="https://wa.me/2349127377337?text=Hello%20I%20want%20to%20get%20started" class="hero-btn">Get Started</a>
-  </div>
+<!-- Load header.html dynamically -->
+<div id="header"></div>
+<script>
+  fetch('header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('header').innerHTML = data;
+    });
+</script>
 </section>
 
 <main>
