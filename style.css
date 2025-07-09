@@ -448,8 +448,8 @@ section {
 }
 
 .navbar-logo img {
-  height: 60px; /* or 70px */
-  max-height: none;
+  height: 50px; /* or higher */
+  max-width: auto;
 }
 
 .hamburger {
