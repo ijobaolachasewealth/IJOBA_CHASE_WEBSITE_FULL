@@ -105,7 +105,7 @@ section h2 {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Helps readability */
 }
 
-.hero h2 {
+.hero h1 {
   font-size: 4rem;
   margin-bottom: 20px;
   font-weight: bold;
@@ -137,6 +137,21 @@ section h2 {
 .hero-btn:hover {
   background-color: #1ebc57;
   box-shadow: 0 0 12px #1ebc57, 0 0 24px #1ebc57;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+  }
 }
 
 /* ------------------------------
