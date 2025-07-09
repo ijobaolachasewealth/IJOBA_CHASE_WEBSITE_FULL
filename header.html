@@ -36,13 +36,13 @@
 <!-- JS TOGGLE -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
 
     if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-        hamburger.classList.toggle('is-active');
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+        hamburger.classList.toggle("is-active");
       });
 
       document.querySelectorAll('#nav-links a').forEach(link => {
