@@ -1,1 +1,43 @@
+<!-- header.html -->
+<header class="navbar sticky">
+  <div class="container">
+    <div class="logo">
+      <a href="#"><img src="images/logo.png" alt="IJOBA CHASE Logo" /></a>
+    </div>
+
+    <nav class="nav-links" id="navMenu">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Product</a>
+      <a href="#store">Store</a>
+      <a href="#contact">Contact</a>
+      <a href="#gift-items">Gift Items Delivery</a>
+      <a href="#boost">Boost Social Media</a>
+      <a href="#virtual-number">Buy Virtual Number</a>
+    </nav>
+
+    <div class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    toggle.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
+    });
+
+    // Close menu on link click (mobile)
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+  });
+</script>
 
