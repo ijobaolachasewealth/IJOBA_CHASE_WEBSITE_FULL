@@ -2,17 +2,17 @@
 <nav class="navbar">
   <div class="nav-container">
 
-    <!-- LOGO -->
+    <!-- Logo -->
     <a href="#home" class="logo">
       <img src="assets/logo.png" alt="IJOBA CHASE LOGO" />
     </a>
 
-    <!-- HAMBURGER ICON -->
+    <!-- Hamburger -->
     <div class="hamburger" id="hamburger">
       <i class="fas fa-bars"></i>
     </div>
 
-    <!-- NAVIGATION LINKS -->
+    <!-- Nav Links -->
     <ul class="nav-links" id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -29,6 +29,25 @@
       <li><a href="#boost">Boost Social Media</a></li>
       <li><a href="#virtual">Buy Virtual Number</a></li>
     </ul>
-    
+
   </div>
 </nav>
+
+<!-- JS Toggle -->
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');           // toggle menu visibility
+    hamburger.classList.toggle('is-active');     // optional rotation
+  });
+
+  // Close nav on mobile when any link is clicked
+  document.querySelectorAll('#nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+      hamburger.classList.remove('is-active');
+    });
+  });
+</script>
