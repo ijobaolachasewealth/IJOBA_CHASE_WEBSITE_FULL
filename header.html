@@ -1,38 +1,47 @@
 <!-- header.html -->
 <nav class="navbar">
   <div class="nav-container">
+
+    <!-- ✅ Logo: stays on the left -->
     <a href="#home" class="logo">
       <img src="assets/logo.png" alt="IJOBA CHASE LOGO" />
     </a>
 
+    <!-- ✅ Hamburger: placed BEFORE the nav links -->
     <div class="hamburger" id="hamburger">
       <i class="fas fa-bars"></i>
     </div>
 
+    <!-- ✅ Nav Links: uses ID for JS to toggle .show -->
     <ul class="nav-links" id="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#product">Product</a></li>
       <li><a href="#store">Store</a></li>
-      <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count-badge">0</span></a></li>
+      <li><a href="cart.html" class="cart-link">
+        <i class="fas fa-shopping-cart"></i> 
+        <span class="cart-count-badge">0</span>
+      </a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#gift">Gift Items Delivery</a></li>
       <li><a href="#boost">Boost Social Media</a></li>
       <li><a href="#virtual">Buy Virtual Number</a></li>
     </ul>
+
   </div>
 </nav>
 
+<!-- ✅ Hamburger Toggle Script -->
 <script>
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('nav-links');
 
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show'); // 🔁 matches CSS
-    hamburger.classList.toggle('is-active'); // 🔁 rotate animation
+    navLinks.classList.toggle('show');
+    hamburger.classList.toggle('is-active');
   });
 
-  // Close mobile menu when a link is clicked
+  // Close on mobile link click
   document.querySelectorAll('#nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('show');
