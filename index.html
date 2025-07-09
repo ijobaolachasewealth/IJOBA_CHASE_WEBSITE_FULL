@@ -170,10 +170,17 @@
 
   <h1>IJOBA CHASE LOGS SPACE</h1>
 
-  <!-- Product Grid -->
-  <section id="product">
-    <div class="product-grid" id="product-container"></div>
-  </section>
+  <!-- Load product-grid.html dynamically -->
+<div id="product-grid-section"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('product-grid.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('product-grid-section').innerHTML = data;
+      });
+  });
+</script>
 
   <!-- Store / How it works -->
   <section class="steps" id="store">
