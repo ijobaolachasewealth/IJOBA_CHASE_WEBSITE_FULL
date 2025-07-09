@@ -33,21 +33,24 @@
   </div>
 </nav>
 
-<!-- JS Toggle -->
+<!-- JS TOGGLE -->
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');           // toggle menu visibility
-    hamburger.classList.toggle('is-active');     // optional rotation
-  });
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        hamburger.classList.toggle('is-active');
+      });
 
-  // Close nav on mobile when any link is clicked
-  document.querySelectorAll('#nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('show');
-      hamburger.classList.remove('is-active');
-    });
+      document.querySelectorAll('#nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+          hamburger.classList.remove('is-active');
+        });
+      });
+    }
   });
 </script>
