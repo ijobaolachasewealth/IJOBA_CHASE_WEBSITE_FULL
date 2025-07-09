@@ -460,12 +460,11 @@ section {
 /* Hamburger */
 .hamburger {
   display: none;
-  font-size: 1.8rem;
+  font-size: 24px;
+  color: #fff;
   cursor: pointer;
-  transition: transform 0.3s ease;
   z-index: 1001;
-  user-select: none;
-  color: white;
+  transition: transform 0.3s ease;
 }
 
 .hamburger.is-active {
@@ -566,11 +565,6 @@ section {
 
   .nav-links li:last-child {
     border-bottom: none;
-  }
-
-  .hero-content {
-    text-align: center;
-    padding: 1rem;
   }
 }
 
