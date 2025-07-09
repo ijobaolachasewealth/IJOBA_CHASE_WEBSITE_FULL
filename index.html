@@ -194,10 +194,41 @@
   });
 </script>
 
-  <!-- Coming Soon Sections -->
-  <section id="gifts"><h2 style="text-align:center;">Gift Items Delivery</h2><p style="text-align:center;">Coming soon...</p></section>
-  <section id="boost"><h2 style="text-align:center;">Boost Social Media</h2><p style="text-align:center;">Coming soon...</p></section>
-  <section id="virtual-number"><h2 style="text-align:center;">Buy Virtual Number</h2><p style="text-align:center;">Coming soon...</p></section>
+  <!-- Load gifts.html -->
+<div id="gifts-section"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('gifts.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('gifts-section').innerHTML = data;
+      });
+  });
+</script>
+
+<!-- Load boost.html -->
+<div id="boost-section"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('boost.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('boost-section').innerHTML = data;
+      });
+  });
+</script>
+
+<!-- Load virtual-number.html -->
+<div id="virtual-number-section"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch('virtual-number.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('virtual-number-section').innerHTML = data;
+      });
+  });
+</script>
 </main>
 
 <!-- Footer -->
