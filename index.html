@@ -142,7 +142,16 @@
       document.getElementById('header').innerHTML = data;
     });
 </script>
-</section>
+
+<!-- Load hero.html dynamically -->
+<div id="hero-section"></div>
+<script>
+  fetch('hero.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('hero-section').innerHTML = data;
+    });
+</script>
 
 <main>
   <!-- About / Features Section -->
