@@ -29,12 +29,13 @@
 
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
+    hamburger.classList.toggle('is-active');
   });
 
-  // Optional: close menu when link is clicked (mobile)
   document.querySelectorAll('#nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
+      hamburger.classList.remove('is-active');
     });
   });
 </script>
