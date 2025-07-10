@@ -464,53 +464,6 @@ section {
   color: #25d366;
 }
 
-/* ------------------------------
-   MOBILE MENU
---------------------------------*/
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #0a2640;
-    z-index: 999;
-    text-align: center;
-    padding: 1rem 0;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-.nav-links li {
-  padding: 0.5rem 0;
-  margin-bottom: 1.2rem;
-}
-
-.nav-links li a {
-  font-size: 1.15rem;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
- .logo img {
-    height: 50px;
-    max-width: 150px;
-  }
-}
-
 /* ----------------------------
    FLOATING ICONS - FINAL GLOWING STYLE
 ---------------------------- */
