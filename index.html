@@ -89,7 +89,7 @@
         margin-top: 1rem;
       }
 
-      .nav-links.show {
+      .nav-links.active {
         max-height: 500px;
       }
 
@@ -281,18 +281,6 @@
 
 <!-- Hamburger Toggle Logic -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
-    if (hamburger && navLinks) {
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-      });
-    }
-  });
-</script>
-
-<script>
   function closeLightbox() {
     document.getElementById("lightbox").style.display = "none";
     document.getElementById("lightbox-img").src = "";
@@ -330,5 +318,8 @@
   window.addEventListener('storage', updateCartCount);
 </script>
 
+<!-- Load hamburger toggle -->
+<script src="nav-toggle.js"></script>
+  
 </body>
 </html>
