@@ -2,78 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Product Details - IJOBA CHASE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IJOBA CHASE - Product Detail</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-  <img src="assets/logo.png" alt="IJOBA CHASE LOGO" class="logo" />
-</header>
-
-  <!-- Product Detail Section -->
-  <main class="product-detail">
-    <div class="product-card" id="product-display"></div>
-  </main>
-
-  <!-- Back Button -->
-  <div style="text-align: center; margin-top: 2rem;">
-    <a href="index.html" class="chat-button" style="background-color: #ccc; color: #000;">⬅ Back to Home</a>
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <img src="assets/logo.png" alt="Loading Logo" class="loading-logo" />
   </div>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Ijoba Ola Chase Wealth. All rights reserved.
-  </footer>
+  <!-- Modular Header -->
+  <div id="header"></div>
 
-  <!-- Product Display + Add to Cart Logic -->
+  <!-- Product Detail Section -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-card-single" id="product-detail-content">
+        <!-- Product content will load here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Modular Footer -->
+  <div id="footer-section"></div>
+
+  <!-- Floating Icons -->
+  <div id="floating-icons-section"></div>
+
+  <!-- Scripts -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const data = localStorage.getItem("selectedProduct");
-      const container = document.getElementById("product-display");
+    // Load modular sections
+    const sections = [
+      { id: "header", file: "sections/header.html" },
+      { id: "footer-section", file: "sections/footer.html" },
+      { id: "floating-icons-section", file: "sections/floating-icons.html" }
+    ];
 
-      if (!data) {
-        container.innerHTML = "<p>Product not found. Please go back and select a product again.</p>";
+    sections.forEach(({ id, file }) => {
+      fetch(file)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        })
+        .catch(err => {
+          console.warn(`⚠️ Failed to load ${file}:`, err);
+        });
+    });
+
+    // Load selected product from localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+      const productData = JSON.parse(localStorage.getItem("selectedProduct"));
+      const container = document.getElementById("product-detail-content");
+
+      if (!productData) {
+        container.innerHTML = `
+          <div class="error-message">
+            ⚠️ No product selected. Please go back to the product page.
+          </div>`;
         return;
       }
 
-      const product = JSON.parse(data);
+      const { name, image, message } = productData;
 
       container.innerHTML = `
-        <img src="products/${product.image}" alt="${product.name}" />
-        <h3>${product.name}</h3>
-        <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat on WhatsApp</a>
-        <button id="addToCartBtn" class="add-to-cart-button">Add to Cart</button>
+        <div class="product-image">
+          <img src="products/${image}" alt="${name}" />
+        </div>
+        <div class="product-info">
+          <h2>${name}</h2>
+          <p>Interested in this product? Start a WhatsApp chat now.</p>
+          <a href="https://wa.me/2341234567890?text=${encodeURIComponent(message)}" class="chat-button">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </div>
       `;
-
-      // Add to cart logic
-      setTimeout(() => {
-        document.getElementById("addToCartBtn").addEventListener("click", () => {
-          let cart = JSON.parse(localStorage.getItem("cart")) || [];
-          cart.push(product);
-          localStorage.setItem("cart", JSON.stringify(cart));
-          alert("Product added to cart!");
-        });
-      }, 100);
     });
   </script>
 
+  <!-- Loading screen logic -->
   <script>
-  function updateCartCount() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const countBadge = document.querySelector('.cart-count-badge');
-    if (countBadge) {
-      countBadge.textContent = cartItems.length;
-    }
-  }
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loading-screen");
+      if (loader) {
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 400);
+      }
+    });
+  </script>
 
-  // Run on page load
-  updateCartCount();
-
-  // Optional: Sync live if using buttons to modify cart
-  window.addEventListener('storage', updateCartCount);
-</script>
 </body>
 </html>
