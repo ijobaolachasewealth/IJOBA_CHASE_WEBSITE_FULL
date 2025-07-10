@@ -131,146 +131,71 @@
 </head>
 <body>
 
-<div id="header"></div>
 <script>
-  fetch('header.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('header').innerHTML = data;
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = [
+      { id: "header", file: "header.html" },
+      { id: "hero-section", file: "hero.html" },
+      { id: "about-section", file: "about.html" },
+      { id: "product-grid-section", file: "product-grid.html" },
+      { id: "store-section", file: "store.html" },
+      { id: "gifts-section", file: "gifts.html" },
+      { id: "boost-section", file: "boost.html" },
+      { id: "virtual-number-section", file: "virtual-number.html" },
+      { id: "footer-section", file: "footer.html" },
+      { id: "floating-icons-section", file: "floating-icons.html" },
+    ];
+
+    sections.forEach(({ id, file }) => {
+      fetch(file)
+        .then(res => {
+          if (!res.ok) throw new Error(`${file} not found`);
+          return res.text();
+        })
+        .then(html => {
+          const target = document.getElementById(id);
+          if (target) target.innerHTML = html;
+        })
+        .catch(err => {
+          console.warn(`⚠️ Failed to load ${file}:`, err);
+        });
     });
-</script>
 
-<div id="hero-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('hero.html')
+    // Dynamic product rendering
+    fetch('product-grid.html')
       .then(res => res.text())
       .then(data => {
-        document.getElementById('hero-section').innerHTML = data;
-      });
-  });
-</script>
+        const container = document.getElementById('product-grid-section');
+        container.innerHTML = data;
 
-<main>
-  <div id="about-section"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch('about.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('about-section').innerHTML = data;
-        });
-  });
-  </script>
+        const products = [
+          { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
+          { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
+          { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
+          { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
+        ];
 
-  <div id="product-grid-section"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch('product-grid.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('product-grid-section').innerHTML = data;
-
-          const products = [
-            { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
-            { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
-            { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
-            { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
-          ];
-
-          const container = document.getElementById('product-container');
-          if (container) {
-            products.forEach((product, index) => {
-              const card = document.createElement('div');
-              card.className = 'product-card';
-              card.setAttribute('data-aos', 'fade-up');
-              card.setAttribute('data-aos-delay', index * 100);
-              card.innerHTML = `
-                <div class="image-link" style="cursor: pointer;">
-                  <img src="products/${product.image}" alt="${product.name}" />
-                </div>
-                <h3>${product.name}</h3>
-                <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-              `;
-              card.querySelector(".image-link").addEventListener("click", () => {
-                localStorage.setItem("selectedProduct", JSON.stringify(product));
-                window.location.href = "product.html";
-              });
-              container.appendChild(card);
+        const grid = document.getElementById('product-container');
+        if (grid) {
+          products.forEach((product, index) => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-aos', 'fade-up');
+            card.setAttribute('data-aos-delay', index * 100);
+            card.innerHTML = `
+              <div class="image-link" style="cursor: pointer;">
+                <img src="products/${product.image}" alt="${product.name}" />
+              </div>
+              <h3>${product.name}</h3>
+              <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+            `;
+            card.querySelector(".image-link").addEventListener("click", () => {
+              localStorage.setItem("selectedProduct", JSON.stringify(product));
+              window.location.href = "product.html";
             });
-          }
-        });
-  });
-  </script>
-
-  <div id="store-section"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch('store.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('store-section').innerHTML = data;
-        });
-  });
-  </script>
-
-  <div id="gifts-section"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch('gifts.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('gifts-section').innerHTML = data;
-        });
-  });
-  </script>
-
-  <div id="boost-section"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch('boost.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('boost-section').innerHTML = data;
-        });
-  });
-  </script>
-
-  <div id="virtual-number-section"></div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch('virtual-number.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('virtual-number-section').innerHTML = data;
-        });
-  });
-  </script>
-</main>
-
-<div id="footer-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('footer-section').innerHTML = data;
-      });
-  });
-</script>
-
-<div id="lightbox" class="lightbox">
-  <span class="close-btn" onclick="closeLightbox()">&times;</span>
-  <img id="lightbox-img" src="" alt="Full View" />
-</div>
-
-<div id="floating-icons-section"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch('floating-icons.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('floating-icons-section').innerHTML = data;
+            grid.appendChild(card);
+          });
+        }
       });
   });
 </script>
