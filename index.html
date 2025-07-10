@@ -185,40 +185,48 @@
 
     // Dynamic product rendering
     fetch('product-grid.html')
-      .then(res => res.text())
-      .then(data => {
-        const container = document.getElementById('product-grid-section');
-        container.innerHTML = data;
+  .then(res => res.text())
+  .then(data => {
+    const container = document.getElementById('product-grid-section');
+    container.innerHTML = data;
 
-        const products = [
-          { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
-          { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
-          { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
-          { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
-        ];
+    // Show shimmer placeholders
+    const grid = document.getElementById('product-container');
+    if (grid) {
+      grid.innerHTML = `<div class="shimmer-wrapper">
+        ${'<div class="shimmer-card"></div>'.repeat(4)}
+      </div>`;
+    }
 
-        const grid = document.getElementById('product-container');
-        if (grid) {
-          products.forEach((product, index) => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.setAttribute('data-aos', 'fade-up');
-            card.setAttribute('data-aos-delay', index * 100);
-            card.innerHTML = `
-              <div class="image-link" style="cursor: pointer;">
-                <img src="products/${product.image}" alt="${product.name}" />
-              </div>
-              <h3>${product.name}</h3>
-              <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
-            `;
-            card.querySelector(".image-link").addEventListener("click", () => {
-              localStorage.setItem("selectedProduct", JSON.stringify(product));
-              window.location.href = "product.html";
-            });
-            grid.appendChild(card);
-          });
-        }
+    // Simulate delay for effect
+    setTimeout(() => {
+      const products = [
+        { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
+        { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
+        { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
+        { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
+      ];
+
+      grid.innerHTML = ""; // Clear shimmer
+      products.forEach((product, index) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', index * 100);
+        card.innerHTML = `
+          <div class="image-link" style="cursor: pointer;">
+            <img src="products/${product.image}" alt="${product.name}" />
+          </div>
+          <h3>${product.name}</h3>
+          <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+        `;
+        card.querySelector(".image-link").addEventListener("click", () => {
+          localStorage.setItem("selectedProduct", JSON.stringify(product));
+          window.location.href = "product.html";
+        });
+        grid.appendChild(card);
       });
+    }, 1000); // Delay to simulate loading
   });
 </script>
 
