@@ -9,7 +9,9 @@
 
     <!-- Hamburger Icon -->
     <div class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
 
     <!-- Navigation Links -->
@@ -32,3 +34,76 @@
 
   </div>
 </nav>
+
+<style>
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.4s;
+  }
+
+  .hamburger.is-active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.is-active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      max-height: 0;
+      overflow: hidden;
+      flex-direction: column;
+      background: #0a2640;
+      transition: max-height 0.4s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .nav-links.active {
+      max-height: 500px;
+    }
+
+    .nav-links li {
+      text-align: center;
+      padding: 0.8rem 0;
+    }
+  }
+</style>
+
+<!-- Hamburger Toggle Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("is-active");
+    });
+
+    document.querySelectorAll("#nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        hamburger.classList.remove("is-active");
+      });
+    });
+  });
+</script>
