@@ -451,15 +451,13 @@ section {
 
 .nav-links {
   display: flex;
-  list-style: none;
-  gap: 1rem;
+  gap: 1.2rem;
+  align-items: center;
 }
 
 .nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.4rem;
 }
 
 .nav-links li a:hover {
@@ -494,12 +492,20 @@ section {
     display: flex;
   }
 
-  .nav-links li {
-    padding: 1rem 0;
-    width: 100%;
-  }
+.nav-links li {
+  padding: 0.5rem 0;
+  margin-bottom: 1.2rem;
+}
 
-  .logo img {
+.nav-links li a {
+  font-size: 1.15rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+ .logo img {
     height: 50px;
     max-width: 150px;
   }
