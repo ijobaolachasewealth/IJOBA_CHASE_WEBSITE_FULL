@@ -238,26 +238,27 @@ transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 .product-grid,
 #product-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-  padding: 10px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 2rem 1rem;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
 .product-card {
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 1.25rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .product-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .product-card img {
@@ -265,7 +266,7 @@ transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   height: auto;
   max-height: 220px;
   object-fit: cover;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   transition: transform 0.3s ease;
 }
 
@@ -274,9 +275,78 @@ transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card h3 {
-  margin: 1rem 0 0.5rem;
-  font-size: 1.1rem;
-  color: #333;
+  margin: 1.25rem 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ------------------------------
+   PRODUCT DETAIL PAGE
+--------------------------------*/
+.product-detail {
+  padding: 5rem 1rem;
+  background: #f9f9f9;
+}
+
+.product-card-single {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.product-image img {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.product-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.chat-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.chat-button:hover {
+  background: #1ebc57;
+}
+
+/* ------------------------------
+   PRODUCT DETAIL PAGE (Responsive)
+--------------------------------*/
+@media (max-width: 768px) {
+  .product-card-single {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .product-info h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .chat-button {
+    display: block;
+    margin: 1.5rem auto 0;
+    text-align: center;
+  }
 }
 
 /* ------------------------------
