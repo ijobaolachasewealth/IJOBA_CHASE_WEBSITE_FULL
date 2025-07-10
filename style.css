@@ -67,7 +67,7 @@ section h2 {
 --------------------------------*/
 .hero {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
