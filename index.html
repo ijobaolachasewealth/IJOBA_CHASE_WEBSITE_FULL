@@ -165,7 +165,7 @@
       { id: "boost-section", file: "boost.html" },
       { id: "virtual-number-section", file: "virtual-number.html" },
       { id: "footer-section", file: "footer.html" },
-      { id: "floating-icons-section", file: "floating-icons.html" },
+      { id: "floating-icons-section", file: "floating-icons.html" }
     ];
 
     sections.forEach(({ id, file }) => {
@@ -176,7 +176,40 @@
         })
         .then(html => {
           const target = document.getElementById(id);
-          if (target) target.innerHTML = html;
+          if (!target) return;
+          target.innerHTML = html;
+
+          // ✅ Inject nav-toggle logic AFTER header loads
+          if (id === "header") {
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("nav-links");
+            const overlay = document.getElementById("nav-overlay");
+
+            if (!hamburger || !navLinks || !overlay) {
+              console.warn("Navbar toggle elements not found.");
+              return;
+            }
+
+            hamburger.addEventListener("click", () => {
+              navLinks.classList.toggle("active");
+              hamburger.classList.toggle("is-active");
+              overlay.classList.toggle("active");
+            });
+
+            document.querySelectorAll("#nav-links a").forEach(link => {
+              link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                hamburger.classList.remove("is-active");
+                overlay.classList.remove("active");
+              });
+            });
+
+            overlay.addEventListener("click", () => {
+              navLinks.classList.remove("active");
+              hamburger.classList.remove("is-active");
+              overlay.classList.remove("active");
+            });
+          }
         })
         .catch(err => {
           console.warn(`⚠️ Failed to load ${file}:`, err);
