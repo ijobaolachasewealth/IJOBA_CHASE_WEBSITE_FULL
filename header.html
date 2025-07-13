@@ -1,0 +1,110 @@
+<!-- header.html -->
+<nav class="navbar">
+  <div class="nav-container">
+
+    <!-- Logo -->
+    <a href="#home" class="logo">
+      <img src="assets/logo.png" alt="IJOBA CHASE LOGO" />
+    </a>
+
+    <!-- Hamburger Icon -->
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="#product"><i class="fas fa-box"></i> Product</a></li>
+      <li><a href="#store"><i class="fas fa-store"></i> Store</a></li>
+      <li>
+        <a href="cart.html" class="cart-link">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count-badge">0</span>
+        </a>
+      </li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#gift"><i class="fas fa-gift"></i> Gift Items Delivery</a></li>
+      <li><a href="#boost"><i class="fas fa-bolt"></i> Boost Social Media</a></li>
+      <li><a href="#virtual"><i class="fas fa-phone"></i> Buy Virtual Number</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<style>
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1101;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.4s;
+  }
+
+  .hamburger.is-active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.is-active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100vh;
+      width: 260px;
+      background: #0a2640;
+      transform: translateX(100%);
+      transition: transform 0.4s ease-in-out;
+      flex-direction: column;
+      padding: 4rem 1.5rem;
+      box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1100;
+    }
+
+    .nav-links.active {
+      transform: translateX(0);
+    }
+
+    .nav-links li {
+      text-align: left;
+      margin-bottom: 1.8rem;
+    }
+
+    .nav-links li a {
+      font-size: 1.2rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 48px;
+      max-width: 160px;
+    }
+  }
+
+</style>
+<div class="nav-overlay" id="nav-overlay"></div>

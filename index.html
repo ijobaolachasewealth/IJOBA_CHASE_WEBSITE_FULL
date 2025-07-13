@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IJoba Chase - Products</title> 
+
+  <!-- ✅ Favicon and related icons -->
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #111;
+      background: #fff;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(90deg, #061c2c, #0a2640);
+      z-index: 1000;
+      padding: 0.8rem 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from { top: -80px; opacity: 0; }
+      to { top: 0; opacity: 1; }
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo img {
+      max-width: 60px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      transition: max-height 0.4s ease;
+    }
+
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #25d366;
+    }
+
+    .hamburger {
+      font-size: 1.5rem;
+      color: #fff;
+      display: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background: #0a2640;
+        margin-top: 1rem;
+      }
+
+      .nav-links.active {
+        max-height: 500px;
+      }
+
+      .nav-links li {
+        text-align: center;
+        padding: 0.8rem 0;
+      }
+    }
+
+    .floating-icons {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+
+    .floating-icons a {
+      background: #25d366;
+      color: #fff;
+      font-size: 1.2rem;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+
+    .floating-icons a:hover {
+      background: #1ebc57;
+    }
+  </style>
+</head>
+<body>
+  
+<div id="loading-screen">
+  <img src="assets/logo-loading.png" alt="Loading Logo" class="loading-logo" />
+</div>
+
+<div id="header"></div>
+<div id="hero-section"></div>
+<main>
+  <div id="about-section"></div>
+  <div id="product-grid-section"></div>
+  <div id="store-section"></div>
+  <div id="gifts-section"></div>
+  <div id="boost-section"></div>
+  <div id="virtual-number-section"></div>
+</main>
+<div id="footer-section"></div>
+
+<div id="lightbox" class="lightbox">
+  <span class="close-btn" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="Full View" />
+</div>
+
+<div id="floating-icons-section"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = [
+      { id: "header", file: "header.html" },
+      { id: "hero-section", file: "hero.html" },
+      { id: "about-section", file: "about.html" },
+      { id: "product-grid-section", file: "product-grid.html" },
+      { id: "store-section", file: "store.html" },
+      { id: "gifts-section", file: "gifts.html" },
+      { id: "boost-section", file: "boost.html" },
+      { id: "virtual-number-section", file: "virtual-number.html" },
+      { id: "footer-section", file: "footer.html" },
+      { id: "floating-icons-section", file: "floating-icons.html" }
+    ];
+
+    sections.forEach(({ id, file }) => {
+      fetch(file)
+        .then(res => {
+          if (!res.ok) throw new Error(`${file} not found`);
+          return res.text();
+        })
+        .then(html => {
+          const target = document.getElementById(id);
+          if (!target) return;
+          target.innerHTML = html;
+
+          AOS.refresh();
+
+          if (id === "header") {
+            const hamburger = document.getElementById("hamburger");
+            const navLinks = document.getElementById("nav-links");
+            const overlay = document.getElementById("nav-overlay");
+
+            if (!hamburger || !navLinks || !overlay) {
+              console.warn("Navbar toggle elements not found.");
+              return;
+            }
+
+            hamburger.addEventListener("click", () => {
+              navLinks.classList.toggle("active");
+              hamburger.classList.toggle("is-active");
+              overlay.classList.toggle("active");
+            });
+
+            document.querySelectorAll("#nav-links a").forEach(link => {
+              link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                hamburger.classList.remove("is-active");
+                overlay.classList.remove("active");
+              });
+            });
+
+            overlay.addEventListener("click", () => {
+              navLinks.classList.remove("active");
+              hamburger.classList.remove("is-active");
+              overlay.classList.remove("active");
+            });
+          }
+
+          // ✅ Inject products when the product grid loads
+          if (id === "product-grid-section") {
+            const grid = document.getElementById('product-container');
+            if (!grid) {
+              console.warn("❌ product-container not found");
+              return;
+            }
+
+            grid.innerHTML = `
+              <div style="display: flex; justify-content: center; padding: 2rem;">
+                <img src="assets/logo-loading.png" alt="Loading..." style="width: 60px; animation: spin 2s linear infinite;" />
+              </div>
+            `;
+
+            setTimeout(() => {
+              const products = [
+                { name: "Product 1", image: "Product 1.jpg", message: "Hello, I'm interested in Product 1" },
+                { name: "Product 2", image: "Product 2.jpg", message: "Hello, I'm interested in Product 2" },
+                { name: "Product 3", image: "Product 3.jpg", message: "Hello, I'm interested in Product 3" },
+                { name: "Product 4", image: "Product 4.jpg", message: "Hello, I'm interested in Product 4" }
+              ];
+
+              grid.innerHTML = ""; // Clear shimmer
+
+              products.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.setAttribute('data-aos', 'fade-up');
+                card.setAttribute('data-aos-delay', index * 100);
+                card.innerHTML = `
+                  <div class="image-link" style="cursor: pointer;">
+                    <img src="products/${product.image}" alt="${product.name}" onerror="this.onerror=null; this.src='assets/fallback.jpg';" />
+                  </div>
+                  <h3>${product.name}</h3>
+                  <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
+                `;
+                card.querySelector(".image-link").addEventListener("click", () => {
+                  localStorage.setItem("selectedProduct", JSON.stringify(product));
+                  window.location.href = "product.html";
+                });
+                grid.appendChild(card);
+              });
+
+              AOS.refresh();
+            }, 1000);
+          }
+        })
+        .catch(err => {
+          console.warn(`⚠️ Failed to load ${file}:`, err);
+        });
+    });
+  });
+</script>
+
+<script>
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+    document.getElementById("lightbox-img").src = "";
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    document.addEventListener("click", function (e) {
+      const imageDiv = e.target.closest(".image-link");
+      if (imageDiv) {
+        const img = imageDiv.querySelector("img");
+        if (img) {
+          lightboxImg.src = img.src;
+          lightbox.style.display = "flex";
+        }
+      }
+    });
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  });
+</script>
+
+<script>
+  function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const countBadge = document.querySelector('.cart-count-badge');
+    if (countBadge) {
+      countBadge.textContent = cartItems.length;
+    }
+  }
+  updateCartCount();
+  window.addEventListener('storage', updateCartCount);
+</script>
+
+<!-- AOS.js Animation -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+<script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loading-screen");
+    if (loader) {
+      loader.style.opacity = "0";
+      setTimeout(() => loader.style.display = "none", 400);
+    }
+  });
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", (e) => {
+      if (link.getAttribute("target") !== "_blank" && !link.href.includes('#')) {
+        const loader = document.getElementById("loading-screen");
+        if (loader) loader.style.display = "flex";
+      }
+    });
+  });
+</script>
+</body>
+</html>

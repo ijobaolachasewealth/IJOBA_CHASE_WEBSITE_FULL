@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IJOBA CHASE - Product Detail</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <img src="assets/logo.png" alt="Loading Logo" class="loading-logo" />
+  </div>
+
+  <!-- Modular Header -->
+  <div id="header"></div>
+
+  <!-- Product Detail Section -->
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-card-single" id="product-detail-content">
+        <!-- Product content will load here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Modular Footer -->
+  <div id="footer-section"></div>
+
+  <!-- Floating Icons -->
+  <div id="floating-icons-section"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Load modular sections
+    const sections = [
+      { id: "header", file: "sections/header.html" },
+      { id: "footer-section", file: "sections/footer.html" },
+      { id: "floating-icons-section", file: "sections/floating-icons.html" }
+    ];
+
+    sections.forEach(({ id, file }) => {
+      fetch(file)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById(id).innerHTML = html;
+        })
+        .catch(err => {
+          console.warn(`⚠️ Failed to load ${file}:`, err);
+        });
+    });
+
+    // Load selected product from localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+      const productData = JSON.parse(localStorage.getItem("selectedProduct"));
+      const container = document.getElementById("product-detail-content");
+
+      if (!productData) {
+        container.innerHTML = `
+          <div class="error-message">
+            ⚠️ No product selected. Please go back to the product page.
+          </div>`;
+        return;
+      }
+
+      const { name, image, message } = productData;
+
+      container.innerHTML = `
+        <div class="product-image">
+          <img src="products/${image}" alt="${name}" />
+        </div>
+        <div class="product-info">
+          <h2>${name}</h2>
+          <p>Interested in this product? Start a WhatsApp chat now.</p>
+          <a href="https://wa.me/2349127377337?text=${encodeURIComponent(message)}" class="chat-button">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+        </div>
+      `;
+    });
+  </script>
+
+  <!-- Loading screen logic -->
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loading-screen");
+      if (loader) {
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 400);
+      }
+    });
+  </script>
+
+</body>
+</html>

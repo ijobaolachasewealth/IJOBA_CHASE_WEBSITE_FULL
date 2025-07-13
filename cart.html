@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart - IJOBA CHASE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+  <img src="assets/logo.png" alt="IJOBA CHASE LOGO" class="logo" />
+</header>
+
+  <!-- Cart Section -->
+  <main class="cart-container" id="cart-container">
+    <!-- Cart items will load here -->
+  </main>
+
+  <!-- Cart Footer -->
+  <div class="cart-footer">
+    <a href="index.html">⬅ Continue Shopping</a>
+  </div>
+
+  <!-- Cart Logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const container = document.getElementById("cart-container");
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p style='text-align:center;'>Your cart is empty.</p>";
+        return;
+      }
+
+      cart.forEach((product, index) => {
+        const item = document.createElement("div");
+        item.className = "cart-item";
+
+        item.innerHTML = `
+          <img src="products/${product.image}" alt="${product.name}" />
+          <div class="cart-item-info">
+            <h4>${product.name}</h4>
+            <p><a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" target="_blank">Chat to Order</a></p>
+          </div>
+          <button onclick="removeFromCart(${index})">Remove</button>
+        `;
+
+        container.appendChild(item);
+      });
+    });
+
+    function removeFromCart(index) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    }
+  </script>
+
+  <script>
+  function updateCartCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const countBadge = document.querySelector('.cart-count-badge');
+    if (countBadge) {
+      countBadge.textContent = cartItems.length;
+    }
+  }
+
+  // Run on page load
+  updateCartCount();
+
+  // Optional: Sync live if using buttons to modify cart
+  window.addEventListener('storage', updateCartCount);
+</script>
+
+</body>
+</html>
