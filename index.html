@@ -227,9 +227,11 @@
               return;
             }
 
-            grid.innerHTML = `<div class="shimmer-wrapper">
-              ${'<div class="shimmer-card"></div>'.repeat(4)}
-            </div>`;
+            grid.innerHTML = `
+              <div style="display: flex; justify-content: center; padding: 2rem;">
+                <img src="assets/logo-loading.png" alt="Loading..." style="width: 60px; animation: spin 2s linear infinite;" />
+              </div>
+            `;
 
             setTimeout(() => {
               const products = [
@@ -248,7 +250,7 @@
                 card.setAttribute('data-aos-delay', index * 100);
                 card.innerHTML = `
                   <div class="image-link" style="cursor: pointer;">
-                    <img src="products/${product.image}" alt="${product.name}" />
+                    <img src="products/${product.image}" alt="${product.name}" onerror="this.onerror=null; this.src='assets/fallback.jpg';" />
                   </div>
                   <h3>${product.name}</h3>
                   <a href="https://wa.me/2341234567890?text=${encodeURIComponent(product.message)}" class="chat-button">Chat</a>
